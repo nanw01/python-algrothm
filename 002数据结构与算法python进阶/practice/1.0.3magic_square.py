@@ -1,8 +1,12 @@
+# 打印 N*N 的幻方，各行各列对角线之和都相等
+
+# 有固定模式，
+
 def magic_square(n):
     magic = [[0]*(n) for i in range(n)]
     row=n-1
     col=n//2
-
+  
     magic[row][col] = 1
 
     for i in range(2, n*n+1):
@@ -19,4 +23,4 @@ def magic_square(n):
     for x in magic:
         print(x,sep=' ')
 
-magic_square(4)
+magic_square(5)
