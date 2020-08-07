@@ -3,3 +3,26 @@
 # 如果存在这个数，则返回其index，否则返回-1。
 
 # 思路，找到最大数跟第二最大数
+
+def largest_twice(nums):
+
+    maxnum = second = 0
+
+    for i in range(len(nums)):
+        if maxnum<nums[i]:
+            second = maxnum
+            maxnum = nums[i]
+            idx = i
+
+        elif second <nums[i]:
+            second = nums[i]
+
+    return idx if (maxnum > second*2) else -1
+
+
+
+
+
+nums = [1, 2,3,8,3,2,1]
+result = largest_twice(nums)
+print(result)
