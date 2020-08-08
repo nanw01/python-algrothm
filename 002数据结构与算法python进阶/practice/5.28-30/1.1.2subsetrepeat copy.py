@@ -1,11 +1,5 @@
-# def subsets(nums):
-#     result=[[]]
-#     for num in nums:
-#         for element in result[:]:
-#             x=element[:]
-#             x.append(num)
-#             result.append(x)
-#     return result
+# 有重复的数
+
 def subsets_recursive(nums):
 
     lst=[]
@@ -23,14 +17,4 @@ def subsets_recursive_help(result,lst,nums,pos):
 
 
 nums=['a','b','c']
-print(subsets_recursive(nums))
-
-
-
-
-
-
-nums=['a','b','c']
-# print(subsets(nums))
-
 print(subsets_recursive(nums))
