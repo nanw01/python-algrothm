@@ -57,7 +57,8 @@ def movingMax(arr,k):
     
     print(Qi[0])
     # Print the maximum element of last window
-    print(str(arr[Qi[0]]))
+    print(str(arr[Qi[0]])) 
+    
 
 
 
