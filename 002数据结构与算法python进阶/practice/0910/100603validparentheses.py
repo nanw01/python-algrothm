@@ -30,3 +30,22 @@ s = "{{{}}{}{{}}}"
 print(isValid(s))
 s = "[]{}([{}]{})"
 print(isValid(s))
+
+
+
+s = "{"
+print(isValid(s))
+s = "}"
+print(isValid(s))
+s = "{}}"
+print(isValid(s))
+s = "{}{}}"
+print(isValid(s))
+s = "}{"
+print(isValid(s))
+s = "}{}"
+print(isValid(s))
+s = "(]"
+print(isValid(s))
+s = "[}]"
+print(isValid(s))
