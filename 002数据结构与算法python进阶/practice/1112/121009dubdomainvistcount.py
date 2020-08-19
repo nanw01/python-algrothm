@@ -27,8 +27,25 @@ def subdomainVisits(cpdomains):
     return ["{} {}".format(ct, dom) for dom, ct in ans.items()]
 
 
+
+def subdomainVisits1(cpdomains):
+
+    ans = collections.Counter()
+    for domain in cpdomains:
+        count, domain = domain.split()
+        count = int(count)
+        frags = domain.split('.')
+        for i in range(len(frags)):
+            ans['.'.join(frags[i:])] += count
+
+    return ["{} {}".format(ct,dom) for dom,ct in ans.items()]
+
+
+
+
+
 cp = ["9001 scholar.google.com"]
 print(subdomainVisits(cp))
 
 cp = ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-print(subdomainVisits(cp))
+print(subdomainVisits1(cp))
