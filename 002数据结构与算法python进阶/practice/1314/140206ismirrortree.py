@@ -70,12 +70,29 @@ class AdvBST5(AdvBST4):
             return False
         return self._isBST(node._left, minval, node._item) and self._isBST(node._right, node._item, maxval)
 
-bst = AdvBST5()
-numbers = [10,3,4,7,8]
+
+
+class AdvBST6(AdvBST5):    
+    def mirror(self):
+        self._mirror(self._root)
+    
+    def _mirror(self, node):
+        if (node is not None):
+            self._mirror(node._left)
+            self._mirror(node._right)
+            
+            temp = node._left
+            node._left = node._right
+            node._right = temp
+            
+
+
+bst = AdvBST6()
+numbers = [6, 4, 8, 7, 9, 5, 1, 3, 2]
 for i in numbers:
     bst.add(i)
-
 bst.print_inorder()
 
 
-print(bst.isBST())
+bst.mirror()
+bst.print_inorder()
