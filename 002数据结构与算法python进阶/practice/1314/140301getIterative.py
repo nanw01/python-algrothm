@@ -21,6 +21,4 @@ numbers = [6, 4, 8, 7, 9, 2, 1, 3, 5, 13, 11, 10, 12]
 for i in numbers:
     bst.add(i)
 bst.print_inorder()
-bst.getIterative(5)  
-
-
+print(bst.getIterative(5))
