@@ -38,6 +38,8 @@ class Graph:
             self.vertices[vtx].setVertexID(id)
 
     def getVertex(self, n):
+
+        # creat a copy and return a copy
         for vertxin in range(0, self.numVertices):
             if n == self.vertices[vertxin].getVertexID():
                 return vertxin
@@ -62,7 +64,8 @@ class Graph:
         for u in range(0, self.numVertices):
             row = []
             for v in range(0, self.numVertices):
-                row.append(str(self.adjMatrix[u][v]) if self.adjMatrix[u][v] is not None else '/')
+                row.append(
+                    str(self.adjMatrix[u][v]) if self.adjMatrix[u][v] is not None else '/')
             print(row)
 
     def getEdges(self):
@@ -111,27 +114,7 @@ if __name__ == '__main__':
     graph.addVertex(7, 'h')  # doing nothing here
 
     print(graph.getVertices())
-    graph.addEdge('a', 'b', 1)
-    graph.addEdge('a', 'c', 2)
-    graph.addEdge('b', 'd', 3)
-    graph.addEdge('b', 'e', 4)
-    graph.addEdge('c', 'd', 5)
-    graph.addEdge('c', 'e', 6)
-    graph.addEdge('d', 'e', 7)
-    graph.addEdge('e', 'a', 8)
-    print(graph.printMatrix())
-    print(graph.getEdges())
-    graph = Graph(6, True)
-    graph.addVertex(0, 'a')
-    graph.addVertex(1, 'b')
-    graph.addVertex(2, 'c')
-    graph.addVertex(3, 'd')
-    graph.addVertex(4, 'e')
-    graph.addVertex(5, 'f')
-    graph.addVertex(6, 'g')  # doing nothing here
-    graph.addVertex(7, 'h')  # doing nothing here
 
-    print(graph.getVertices())
     graph.addEdge('a', 'b', 1)
     graph.addEdge('a', 'c', 2)
     graph.addEdge('b', 'd', 3)
@@ -142,24 +125,46 @@ if __name__ == '__main__':
     graph.addEdge('e', 'a', 8)
     print(graph.printMatrix())
     print(graph.getEdges())
-    graph = Graph(6, True)
-    graph.addVertex(0, 'a')
-    graph.addVertex(1, 'b')
-    graph.addVertex(2, 'c')
-    graph.addVertex(3, 'd')
-    graph.addVertex(4, 'e')
-    graph.addVertex(5, 'f')
-    graph.addVertex(6, 'g')  # doing nothing here
-    graph.addVertex(7, 'h')  # doing nothing here
 
-    print(graph.getVertices())
-    graph.addEdge('a', 'b', 1)
-    graph.addEdge('a', 'c', 2)
-    graph.addEdge('b', 'd', 3)
-    graph.addEdge('b', 'e', 4)
-    graph.addEdge('c', 'd', 5)
-    graph.addEdge('c', 'e', 6)
-    graph.addEdge('d', 'e', 7)
-    graph.addEdge('e', 'a', 8)
-    print(graph.printMatrix())
-    print(graph.getEdges())
+    # graph = Graph(6, True)
+    # graph.addVertex(0, 'a')
+    # graph.addVertex(1, 'b')
+    # graph.addVertex(2, 'c')
+    # graph.addVertex(3, 'd')
+    # graph.addVertex(4, 'e')
+    # graph.addVertex(5, 'f')
+    # graph.addVertex(6, 'g')  # doing nothing here
+    # graph.addVertex(7, 'h')  # doing nothing here
+
+    # print(graph.getVertices())
+    # graph.addEdge('a', 'b', 1)
+    # graph.addEdge('a', 'c', 2)
+    # graph.addEdge('b', 'd', 3)
+    # graph.addEdge('b', 'e', 4)
+    # graph.addEdge('c', 'd', 5)
+    # graph.addEdge('c', 'e', 6)
+    # graph.addEdge('d', 'e', 7)
+    # graph.addEdge('e', 'a', 8)
+    # print(graph.printMatrix())
+    # print(graph.getEdges())
+    # graph = Graph(6, True)
+    # graph.addVertex(0, 'a')
+    # graph.addVertex(1, 'b')
+    # graph.addVertex(2, 'c')
+    # graph.addVertex(3, 'd')
+    # graph.addVertex(4, 'e')
+    # graph.addVertex(5, 'f')
+    # graph.addVertex(6, 'g')  # doing nothing here
+    # graph.addVertex(7, 'h')  # doing nothing here
+
+    # print(graph.getVertices())
+    # graph.addEdge('a', 'b', 1)
+    # graph.addEdge('a', 'c', 2)
+    # graph.addEdge('b', 'd', 3)
+    # graph.addEdge('b', 'e', 4)
+    # graph.addEdge('c', 'd', 5)
+    # graph.addEdge('c', 'e', 6)
+    # graph.addEdge('d', 'e', 7)
+    # graph.addEdge('e', 'a', 8)
+    # print(graph.printMatrix())
+    # print(graph.getEdges())
