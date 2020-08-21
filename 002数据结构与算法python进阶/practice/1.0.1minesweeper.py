@@ -36,4 +36,4 @@ def minesweeper(m,n,p):
 
 
 
-minesweeper(15,15,0.3)
+minesweeper(5,5,0.3)
