@@ -20,6 +20,9 @@ def kSmallestPairs(nums1, nums2, k):
     return pairs
 
 
+
+
+
 nums1 = [1, 7, 11]
 nums2 = [2, 4, 6]
 k = 4
