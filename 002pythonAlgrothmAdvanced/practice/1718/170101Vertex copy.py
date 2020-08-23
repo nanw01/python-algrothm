@@ -22,10 +22,13 @@ class Vertex:
 
 class Graph:
     def __init__(self, numVertices=10, directed=False):
-        self.adjMatrix = [[None]*numVertices for _ in range(numVertices)]
+        self.adjMatrix = [[None] * numVertices for _ in range(numVertices)]
         self.numVertices = numVertices
         self.vertices = []
         self.directed = directed
+        for i in range(0, numVertices):
+            newVertex = Vertex(i)
+            self.vertices.append(newVertex)
 
     def addVertex(self, vtx, id):
         if 0 <= vtx < self.numVertices:
@@ -57,7 +60,7 @@ class Graph:
                     str(self.adjMatrix[u][v]) if self.adjMatrix[u][v] is not None else '/')
             print(row)
 
-    def getEdge(self):
+    def getEdges(self):
         edges = []
         for v in range(0, self.numVertices):
             for u in range(0, self.numVertices):
@@ -69,17 +72,19 @@ class Graph:
 
     def getNeighbors(self, n):
         neighbors = []
-        for vertxin in range(0, self.numVertices):
-            if n == self.vertices[vertxin].getVertexID():
+
+        for v in range(0, self.numVertices):
+            if n == self.vertices[v].getVertexID():
                 for neighbor in range(0, self.numVertices):
-                    if self.adjMatrix[vertxin][neighbor] is not None:
-                        neighbors.append(self.vertices[neighbor].getVertexId())
+                    if self.adjMatrix[v][neighbor] is not None:
+                        neighbors.append(self.vertices[neighbor].getVertexID())
+
         return neighbors
 
-    def isConnexted(self, u, v):
-        uidx = self.getVertex(u)
-        vidx = self.getVertex(v)
-        return self.adjMatrix[uidx][vidx] is not None
+    def isConnected(self, u, v):
+        u_idx = self.getVertex(u)
+        v_idx = self.getVertex(v)
+        return self.adjMatrix[u_idx][v_idx] is not None
 
     def get2Hops(self, u):
         neighbors = self.getNeighbors(u)
@@ -91,8 +96,8 @@ class Graph:
         return list(hopset)
 
 
-
 if __name__ == "__main__":
+    # add vertexs
     graph = Graph(6, True)
     graph.addVertex(0, 'a')
     graph.addVertex(1, 'b')
@@ -100,9 +105,42 @@ if __name__ == "__main__":
     graph.addVertex(3, 'd')
     graph.addVertex(4, 'e')
     graph.addVertex(5, 'f')
-    # graph.addVertex(6, 'g')  # doing nothing here
-    # graph.addVertex(7, 'h')  # doing nothing here
+    graph.addVertex(6, 'g')  # doing nothing here
+    graph.addVertex(7, 'h')  # doing nothing here
 
     print(graph.getVertices())
 
+    # adde edges
+    graph.addEdge('a', 'b', 1)
+    graph.addEdge('a', 'c', 2)
+    graph.addEdge('b', 'd', 3)
+    graph.addEdge('b', 'e', 4)
+    graph.addEdge('c', 'd', 5)
+    graph.addEdge('c', 'e', 6)
+    graph.addEdge('d', 'e', 7)
+    graph.addEdge('e', 'a', 8)
+    graph.addEdge('a', 'a', 18)
+    print(graph.printMatrix())
 
+    print(graph.getEdges())
+
+    print('邻居：', graph.getNeighbors('a'))
+
+    print(graph.isConnected('a', 'e'))
+
+    print('get2Hops', graph.get2Hops('a'))
+
+    G = Graph(5)
+    G.addVertex(0, 'a')
+    G.addVertex(1, 'b')
+    G.addVertex(2, 'c')
+    G.addVertex(3, 'd')
+    G.addVertex(4, 'e')
+    G.addEdge('a', 'e', 10)
+    G.addEdge('a', 'c', 20)
+    G.addEdge('c', 'b', 30)
+    G.addEdge('b', 'e', 40)
+    G.addEdge('e', 'd', 50)
+    G.addEdge('f', 'e', 60)
+    print(G.printMatrix())
+    print(G.getEdges())

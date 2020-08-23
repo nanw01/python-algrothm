@@ -1,8 +1,8 @@
 class Vertex:
     def __init__(self, node):
         self.id = node
-        # Mark all nodes unvisited
-        self.visited = False
+        # Mark all nodes unvisited        
+        self.visited = False  
 
     def addNeighbor(self, neighbor, G):
         G.addEdge(self.id, neighbor)
@@ -22,12 +22,11 @@ class Vertex:
     def __str__(self):
         return str(self.id)
 
-
 class Graph:
     def __init__(self, numVertices=10, directed=False):
         self.adjMatrix = [[None] * numVertices for _ in range(numVertices)]
         self.numVertices = numVertices
-        self.vertices = []
+        self.vertices = []   # list ==> dict {id:vertex}
         self.directed = directed
         for i in range(0, numVertices):
             newVertex = Vertex(i)
@@ -38,34 +37,32 @@ class Graph:
             self.vertices[vtx].setVertexID(id)
 
     def getVertex(self, n):
-
-        # creat a copy and return a copy
         for vertxin in range(0, self.numVertices):
             if n == self.vertices[vertxin].getVertexID():
                 return vertxin
         return None
 
-    def addEdge(self, frm, to, cost=0):
-        # print("from",frm, self.getVertex(frm))
-        # print("to",to, self.getVertex(to))
+    def addEdge(self, frm, to, cost=0): 
+        #print("from",frm, self.getVertex(frm))
+        #print("to",to, self.getVertex(to))
         if self.getVertex(frm) is not None and self.getVertex(to) is not None:
             self.adjMatrix[self.getVertex(frm)][self.getVertex(to)] = cost
             if not self.directed:
                 # For directed graph do not add this
-                self.adjMatrix[self.getVertex(to)][self.getVertex(frm)] = cost
+                self.adjMatrix[self.getVertex(to)][self.getVertex(frm)] = cost  
 
     def getVertices(self):
+        # *** create a copy, and return a copy ***
         vertices = []
         for vertxin in range(0, self.numVertices):
             vertices.append(self.vertices[vertxin].getVertexID())
         return vertices
-
+    
     def printMatrix(self):
         for u in range(0, self.numVertices):
             row = []
             for v in range(0, self.numVertices):
-                row.append(
-                    str(self.adjMatrix[u][v]) if self.adjMatrix[u][v] is not None else '/')
+                row.append(str(self.adjMatrix[u][v]) if self.adjMatrix[u][v] is not None else '/')
             print(row)
 
     def getEdges(self):
@@ -77,7 +74,7 @@ class Graph:
                     wid = self.vertices[u].getVertexID()
                     edges.append((vid, wid, self.adjMatrix[u][v]))
         return edges
-
+    
     def getNeighbors(self, n):
         neighbors = []
         for vertxin in range(0, self.numVertices):
@@ -86,12 +83,12 @@ class Graph:
                     if (self.adjMatrix[vertxin][neighbor] is not None):
                         neighbors.append(self.vertices[neighbor].getVertexID())
         return neighbors
-
+    
     def isConnected(self, u, v):
-        uidx = self.getVertex(u)
+        uidx = self.getVertex(u) 
         vidx = self.getVertex(v)
         return self.adjMatrix[uidx][vidx] is not None
-
+    
     def get2Hops(self, u):
         neighbors = self.getNeighbors(u)
         print(neighbors)
@@ -115,16 +112,16 @@ if __name__ == '__main__':
 
     print(graph.getVertices())
 
-    graph.addEdge('a', 'b', 1)
-    graph.addEdge('a', 'c', 2)
-    graph.addEdge('b', 'd', 3)
-    graph.addEdge('b', 'e', 4)
-    graph.addEdge('c', 'd', 5)
-    graph.addEdge('c', 'e', 6)
-    graph.addEdge('d', 'e', 7)
-    graph.addEdge('e', 'a', 8)
-    print(graph.printMatrix())
-    print(graph.getEdges())
+    # graph.addEdge('a', 'b', 1)
+    # graph.addEdge('a', 'c', 2)
+    # graph.addEdge('b', 'd', 3)
+    # graph.addEdge('b', 'e', 4)
+    # graph.addEdge('c', 'd', 5)
+    # graph.addEdge('c', 'e', 6)
+    # graph.addEdge('d', 'e', 7)
+    # graph.addEdge('e', 'a', 8)
+    # print(graph.printMatrix())
+    # print(graph.getEdges())
 
     # graph = Graph(6, True)
     # graph.addVertex(0, 'a')
