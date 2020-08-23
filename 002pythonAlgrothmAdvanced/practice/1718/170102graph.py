@@ -45,34 +45,83 @@ class Vertex():
 
 class Graph:
     def __init__(self, directed=False):
-        pass
+        self.vertDictionary = {}
+        self.numVertices = 0
+        self.directed = directed
 
     def __iter__(self):
-        pass
+        return iter(self.vertDictionary.values())
 
     def isDirected(self):
-        pass
+        return self.isDirected
 
     def vectexCount(self):
-        pass
+        return self.numVertices
 
     def addVertex(self, node):
-        pass
+        self.numVertices += 1
+        newVertex = Vertex(node)
+        self.vertDictionary[node] = newVertex
+        return newVertex
 
     def getVertex(self, n):
-        pass
+        if n in self.vertDictionary:
+            return self.vertDictionary[n]
+        else:
+            return None
 
     def addEdge(self, frm, to, cost=0):
-        pass
+        if frm not in self.vertDictionary:
+            self.addVertex(frm)
+        if to not in self.vertDictionary:
+            self.addVertex(to)
+
+        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
+        if not self.directed:
+            self.vertDictionary[to].addNeighbor(self.vertDictionary[frm], cost)
 
     def getVertices(self, current):
-        pass
+        return self.vertDictionary.keys()
 
     def getPrevious(self, current):
-        pass
+        self.previous = current
 
-    def getEdge(self):
-        pass
+    def getEdges(self):
+        edges = []
+        for _, currentVert in self.vertDictionary.items():
+            for nbr in currentVert.getConnections:
+                currentVertID = currentVert.getVertexID()
+                nbrID = nbr.getVertexID()
+                edges.append(
+                    (currentVertID, nbrID, currentVert.getWeight(nbr)))
+        return edges
 
     def getNeighbors(self, v):
-        pass
+        vertex = self.vertDictionary[v]
+        return vertex.getConnections()
+
+
+G = Graph(True)
+G.addVertex('a')
+G.addVertex('b')
+G.addVertex('c')
+G.addVertex('d')
+G.addVertex('e')
+G.addVertex('f')
+
+G.addEdge('a', 'b', 1)
+G.addEdge('a', 'c', 1)
+G.addEdge('b', 'd', 1)
+G.addEdge('b', 'e', 1)
+G.addEdge('c', 'd', 1)
+G.addEdge('c', 'e', 1)
+G.addEdge('d', 'e', 1)
+G.addEdge('e', 'a', 1)
+print (G.getEdges())
+
+
+
+
+
+for k in G.getEdges():
+    print(k)
