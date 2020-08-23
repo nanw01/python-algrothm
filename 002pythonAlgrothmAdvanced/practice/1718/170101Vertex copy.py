@@ -89,3 +89,20 @@ class Graph:
             hops = self.getNeighbors(v)
             hopset |= set(hops)
         return list(hopset)
+
+
+
+if __name__ == "__main__":
+    graph = Graph(6, True)
+    graph.addVertex(0, 'a')
+    graph.addVertex(1, 'b')
+    graph.addVertex(2, 'c')
+    graph.addVertex(3, 'd')
+    graph.addVertex(4, 'e')
+    graph.addVertex(5, 'f')
+    # graph.addVertex(6, 'g')  # doing nothing here
+    # graph.addVertex(7, 'h')  # doing nothing here
+
+    print(graph.getVertices())
+
+
