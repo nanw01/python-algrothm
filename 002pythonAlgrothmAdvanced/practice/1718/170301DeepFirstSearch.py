@@ -1,6 +1,10 @@
 from AdjListGraph import Graph
 from AdjListGraph import Vertex
 
+'''
+递归方式进行图的深度优先查询
+'''
+
 
 G = Graph(True)
 G.addVertex('a')

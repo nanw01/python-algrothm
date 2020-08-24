@@ -18,6 +18,8 @@ def dfsIterative(G, start, dest):
         neighbors = G.getNeighbors(curr.getVertexID())
         for n in neighbors:
             id = n.getVertexID()
+            if id in visited: 
+                continue
             visited.add(id)
             parent[id] = curr.getVertexID()
             stack.append(n)
