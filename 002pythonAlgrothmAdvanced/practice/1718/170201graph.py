@@ -37,7 +37,7 @@ class Vertex():
         self.visited = True
 
     def __str__(self):
-        return str(self.id)+' adjacent: ' + str([x.id for x in self.adjacent])
+        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
 
     def __lt__(self, other):
         return self.distance < other.distance and self.id < other.id
@@ -89,7 +89,7 @@ class Graph:
     def getEdges(self):
         edges = []
         for _, currentVert in self.vertDictionary.items():
-            for nbr in currentVert.getConnections:
+            for nbr in currentVert.getConnections():
                 currentVertID = currentVert.getVertexID()
                 nbrID = nbr.getVertexID()
                 edges.append(
@@ -101,27 +101,25 @@ class Graph:
         return vertex.getConnections()
 
 
-G = Graph(True)
-G.addVertex('a')
-G.addVertex('b')
-G.addVertex('c')
-G.addVertex('d')
-G.addVertex('e')
-G.addVertex('f')
+if __name__ == '__main__':
 
-G.addEdge('a', 'b', 1)
-G.addEdge('a', 'c', 1)
-G.addEdge('b', 'd', 1)
-G.addEdge('b', 'e', 1)
-G.addEdge('c', 'd', 1)
-G.addEdge('c', 'e', 1)
-G.addEdge('d', 'e', 1)
-G.addEdge('e', 'a', 1)
-print (G.getEdges())
+    G = Graph(True)
+    G.addVertex('a')
+    G.addVertex('b')
+    G.addVertex('c')
+    G.addVertex('d')
+    G.addVertex('e')
+    G.addVertex('f')
 
+    G.addEdge('a', 'b', 1)
+    G.addEdge('a', 'c', 2)
+    G.addEdge('b', 'd', 3)
+    G.addEdge('b', 'e', 4)
+    G.addEdge('c', 'd', 5)
+    G.addEdge('c', 'e', 6)
+    G.addEdge('d', 'e', 7)
+    G.addEdge('e', 'a', 8)
+    print(G.getEdges())
 
-
-
-
-for k in G.getEdges():
-    print(k)
+    for k in G.getEdges():
+        print(k)
