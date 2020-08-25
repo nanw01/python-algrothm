@@ -7,3 +7,22 @@
 # Binary Search (iterative)
 
 
+def bi_search_iter(alist,item):
+    
+    left ,right = 0,len(alist)-1
+
+    while left<=right:
+        mid = (left+right)//2
+        if alist[mid]<item:
+            left = mid+1
+        elif alist[mid]>item:
+            right = mid-1
+        else:
+            return mid
+    return -1
+
+
+num_list = [1,2,3,5,7,8,9]
+print(bi_search_iter(num_list, 7))
+print(bi_search_iter(num_list, 4))
+

@@ -21,6 +21,5 @@ def search(alist):
 
     return alist[left] if alist[left] < alist[right] else alist[right]
 
-
-num_list = [10, 22, 33, 5, 7, 8, 9]
+num_list = [10, 22, 33, 1,5, 7, 8, 9]
 print(search(num_list))

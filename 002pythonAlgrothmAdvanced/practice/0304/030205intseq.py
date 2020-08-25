@@ -7,18 +7,18 @@
 # 113 = ((((11 + 1) + 1) + 1) * 2 * 2 * 2 + 1)
 
 def intSeq(a, b):
-    if a == b:
+    assert(a<=b)
+
+    if a==b:
         return str(a)
-
-    if b % 2 == 1:
-        return '('+intSeq(a, b-1)+' + 1)'
-
+    if b%2 == 1:
+        return '('+intSeq(a,b-1)+' + 1 )'
     if b < a*2:
-        return '('+intSeq(a, b-1)+' + 1)'
+        return "(" + intSeq(a, b-1) + " + 1 )"
 
-    return intSeq(a, b/2)+' * 2'
+    return '('+intSeq(a,b/2)+' * 2 '
 
 
-a = 61
-b = 911
+a = 5
+b = 101
 print(str(b) + " = " + intSeq(a, b))

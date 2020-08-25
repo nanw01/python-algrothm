@@ -6,20 +6,16 @@
 
 def largest_twice(nums):
 
-    maxnum = second = 0
-
+    maxium=second=idx=0
     for i in range(len(nums)):
-        if maxnum<nums[i]:
-            second = maxnum
-            maxnum = nums[i]
+        if maxium <nums[i]:
+            second = maxium
+            maxium = nums[i]
             idx = i
+        elif second< nums[i]:
+            second=nums[i]
 
-        elif second <nums[i]:
-            second = nums[i]
-
-    return idx if (maxnum > second*2) else -1
-
-
+    return idx if(maxium>=second*2) else -1
 
 
 
