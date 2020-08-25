@@ -5,11 +5,11 @@ def search(alist, target):
     if len(alist) == 0:
         return -1
 
-    left, right = 0, len(alist)-1
+    left, right = 0, len(alist) - 1
 
-    while left+1 < right:
+    while left + 1 < right:
 
-        mid = left + (right-left)//2
+        mid = left + (right - left) // 2
         if alist[mid] == target:
             return mid
 
@@ -25,7 +25,6 @@ def search(alist, target):
             else:
                 right = mid
 
-        
         if alist[left] == target:
             return left
         if alist[right] == target:
@@ -34,7 +33,5 @@ def search(alist, target):
         return -1
 
 
-
-
 num_list = [10, 22, 33, 5, 7, 8, 9]
-print(search(num_list,22))
+print(search(num_list, 7))

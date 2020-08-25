@@ -7,26 +7,29 @@ def search_empty(alist, target):
     if len(alist) == 0:
         return -1
 
-    left, right = 0, len(alist) - 1
+    left, right = 0, len(alist)-1
 
-    while left + 1 < right:
-        while left + 1 < right and alist[right] == "":
+    while left+1 < right:
+
+        while left+1 < right and alist[right] == '':
             right -= 1
-        if alist[right] == "":
+        if alist[right] == '':
             right -= 1
-        if right < left:
+        if left > right:
             return -1
 
-        mid = left + (right - left) // 2
-        while alist[mid] == "":
-            mid += 1
+        mid = left+(right-left)//2
+
+        while alist[mid]=='':
+            mid+=1
+
 
         if alist[mid] == target:
             return mid
         if alist[mid] < target:
             left = mid + 1
         else:
-            right = mid - 1
+            right = mid-1
 
     if alist[left] == target:
         return left
@@ -38,4 +41,4 @@ def search_empty(alist, target):
 
 arr = ["for", "geeks", "", "", "", "", "ide",
        "practice", "", "", "", "quiz"]
-print(search_empty(arr,'geeks'))
+print(search_empty(arr, 'geeks'))
