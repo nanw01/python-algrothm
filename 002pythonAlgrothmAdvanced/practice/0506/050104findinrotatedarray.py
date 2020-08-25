@@ -1,40 +1,24 @@
 # Find in Rotated Array
 
-
 def search(alist, target):
-    if len(alist) == 0:
-        return -1
+   if len(alist)==0:
+       return -1
 
-    left, right = 0, len(alist)-1
+    left,right = 0, len(alist) - 1
 
-    while left+1 < right:
+    while left+1<right:
+        if alist[left]<alist[right]:
+            return alist[left]
 
-        mid = left + (right-left)//2
-        if alist[mid] == target:
-            return mid
-
-        if alist[left] < alist[mid]:
-            if alist[left] <= target and target <= alist[mid]:
-                right = mid
-            else:
-                left = mid
-
+        mid = left+(right-left)//2
+        if alist[mid]>alist[left]:
+            left = mid+1
         else:
-            if alist[mid] <= target and target <= alist[right]:
-                left = mid
-            else:
-                right = mid
-
+            right = mid
         
-        if alist[left] == target:
-            return left
-        if alist[right] == target:
-            return right
-
-        return -1
-
+        return alist[left] if alidt[left]<alist[right] else alist[right]
 
 
 
 num_list = [10, 22, 33, 5, 7, 8, 9]
-print(search(num_list,22))
+print(search(num_list, 22))
