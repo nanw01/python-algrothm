@@ -7,27 +7,35 @@
 def search_insert_position(alist, target):
     if len(alist) == 0:
         return 0
+    left, right = 0, len(alist) - 1
 
-    left, right = 0, len(alist)-1
-
-    while left+1 < right:
-
+    while left +1<right:
         mid = left+(right-left)//2
 
-        if alist[mid] == target:
+        if alist[mid]==target:
             return mid
-        if alist[mid] < target:
+
+        if alist[mid]<target:
             left = mid
         else:
             right = mid
 
-    if alist[left] >= target:
+    if alist[left]>=target:
         return left
-    if alist[right] >= target:
+
+    if alist[right]>=target:
         return right
 
     return right+1
 
 
+
+
 num_list = [5, 7, 9]
+print(search_insert_position(num_list, 1))
+print(search_insert_position(num_list, 5))
+print(search_insert_position(num_list, 6))
+print(search_insert_position(num_list, 7))
+print(search_insert_position(num_list, 8))
+print(search_insert_position(num_list, 9))
 print(search_insert_position(num_list, 10))
