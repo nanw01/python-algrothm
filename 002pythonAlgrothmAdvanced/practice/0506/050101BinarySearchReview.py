@@ -22,7 +22,8 @@ def bi_search_iter(alist,item):
     return -1
 
 
-num_list = [1,2,3,5,7,8,9]
-print(bi_search_iter(num_list, 7))
-print(bi_search_iter(num_list, 4))
+if __name__ == '__main__':
+    num_list = [1]
+    print(bi_search_iter(num_list, 1))
+    print(bi_search_iter(num_list, 4))
 
