@@ -35,6 +35,9 @@ def sudoku(matrix):
     return True
 
 
+
+
+
 if __name__ == "__main__":
     matrix = [
     [5,3,4,6,7,8,9,1,2],
