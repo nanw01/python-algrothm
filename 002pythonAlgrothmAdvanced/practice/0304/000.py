@@ -1,6 +1,5 @@
 
 #  * 跳 n 极台阶的跳法
-
 def f(n):
     if (n == 1):
         return 1
