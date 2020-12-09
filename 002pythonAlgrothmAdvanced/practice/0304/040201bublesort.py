@@ -22,3 +22,5 @@ if __name__ == "__main__":
     l = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
     l = bubble_sorted(l, False)
     print(l)
+    l = bubble_sorted(l, True)
+    print(l)

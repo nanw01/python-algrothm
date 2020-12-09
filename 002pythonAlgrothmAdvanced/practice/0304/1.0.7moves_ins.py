@@ -5,6 +5,4 @@ def moves_ins(n, forward):
     print("enter ", n) if forward else print("exit  ", n)
     moves_ins(n-1, False)    
 
-
-
 moves_ins(3, True)

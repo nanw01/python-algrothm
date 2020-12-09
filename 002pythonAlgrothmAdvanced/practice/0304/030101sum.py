@@ -4,5 +4,5 @@ def mysum_recursive(n):
     return n + mysum_recursive(n-1)
 
 
-result = mysum_recursive(10)
+result = mysum_recursive(11)
 print(result)

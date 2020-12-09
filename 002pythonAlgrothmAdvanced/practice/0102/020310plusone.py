@@ -5,20 +5,39 @@
 
 def plusOne(digits):
     if len(digits) == 0:
-       return False
-    
-    for i in range(len(digits)-1,-1,-1):
-        digits[i]+=1
-        if digits[i]==10:
-            digits[i]=0
+        return False
+
+    for i in range(len(digits)-1, -1, -1):
+        digits[i] += 1
+        if digits[i] == 10:
+            digits[i] = 0
             if i == 0:
-                digits.insert(0,1)
+                digits.insert(0, 1)
         else:
             break
 
     return digits
 
-digits = [1, 2, 3]
+
+def plusOne3(digits):
+
+    for i in range(len(digits)-1, -1, -1):
+        digits[i] += 1
+        if digits[i] == 10:
+            digits[i] = 0
+            if i == 0:
+                digits.insert(0, 1)
+        else:
+            break
+
+    return digits
+
+
+
+digits = [9, 9, 6]
 print(plusOne(digits))
-digits = [9, 9, 9]
-print(plusOne(digits))
+print(plusOne3(digits))
+print(plusOne3(digits))
+print(plusOne3(digits))
+print(plusOne3(digits))
+print(plusOne3(digits))

@@ -26,10 +26,6 @@ nums=['a','b','c']
 print(subsets_recursive(nums))
 
 
-
-
-
-
 nums=['a','b','c']
 # print(subsets(nums))
 
