@@ -9,5 +9,4 @@ WHERE (Employee.DepartmentId, Salary) IN (
             MAX(Salary)
         FROM Employee
         GROUP BY DepartmentId
-        
     )
