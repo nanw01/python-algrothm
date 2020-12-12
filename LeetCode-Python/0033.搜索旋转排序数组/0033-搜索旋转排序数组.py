@@ -5,8 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        #1. ╤Ч╥журпЩв╙╣Ц
-        #2. х╥хоtargetбДтзддр╩╡Юх╩╨С╤Ч╥жур
+        #1. О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫в╙О©╫О©╫
+        #2. х╥О©╫О©╫targetО©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫х╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         if not nums:
             return -1
         if len(nums) == 1:

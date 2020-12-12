@@ -1,15 +1,20 @@
 # 选择排序
-def selection_sort(items):
+def selection_sort(A):
     
-    for i in range(len(items)):
-        min = i
-        for j in range(i+1,len(items)):
-            if items[j]<items[i]:
-                min = j
-        items[i],items[min] = items[min],items[i]
-    
-
-    return items
+    for i in range(len(A)): 
+        
+        # Find the minimum element in remaining  
+        # unsorted array 
+        min_idx = i 
+        for j in range(i+1, len(A)): 
+            if A[min_idx] > A[j]: 
+                min_idx = j 
+                
+        # Swap the found minimum element with  
+        # the first element         
+        A[i], A[min_idx] = A[min_idx], A[i]
+        
+    return A
 
 
 if __name__ == "__main__":
