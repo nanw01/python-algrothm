@@ -677,8 +677,3 @@ And there we have our maximum likelihood estimate for $\mu$. We can do the same 
 
 [原文地址：https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1](https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1)
 
-
-
-
-
-
