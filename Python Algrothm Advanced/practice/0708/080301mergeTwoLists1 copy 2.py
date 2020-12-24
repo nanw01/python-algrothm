@@ -6,21 +6,18 @@ from LinkedList import LinkedList
 
 
 def mergeTwoLists1(l1, l2):
-    dummy = cur = Node(0)
+    nodes = cur = Node(0)
+
     while l1 and l2:
         if l1.value < l2.value:
             cur.next = l1
             l1 = l1.next
-        else:
+        else: 
             cur.next = l2
             l2 = l2.next
-        cur = cur.next
-    cur.next = l1 or l2
-    return dummy.next
-
-
-
-
+        cur= cur.next
+    
+    return nodes.next
 
 node11 = Node(1)
 node12 = Node(2)

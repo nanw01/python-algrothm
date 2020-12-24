@@ -1,47 +1,63 @@
-class Solution:
-    def kClosest(self, arr, x, k):
-        """
-        :type arr: List[int]
-        :type k: int
-        :type x: int
-        :rtype: List[int]
-        """
-        # approach: use binary search to find the start which is closest to x
-        left = 0
-        right = len(arr) - k
+class Solution(object):
+    def kClosest(self, array, target, k):
+        n = len(array)
+        left, right = 0, len(array)-1
 
-        while left < right:
-            mid = left + (right - left) // 2
+        if target > array[n-1]:
+            left, right = n-1, n
 
-            # mid + k is closer to x, discard mid by assigning left = mid + 1
-            if x - arr[mid] > arr[mid + k] - x:
-                left = mid + 1
+        elif target < array[0]:
+            left, right = -1, 0
 
-            # mid is equal or closer to x than mid + k, remains mid as candidate
+        else:
+            while left + 1 < right:
+                mid = left + (right-left)//2
+                
+                if array[mid] <= target:
+                    left = mid
+                elif array[mid] > target:
+                    right = mid
+
+
+
+
+        counts = 0
+        list = []
+        if array[left] == target:
+            list.append(array[left])
+            left -= 1
+            counts += 1
+
+        while left >= 0 and right < n and counts < k:
+
+            if target-array[left] <= array[right]-target:
+                list.append(array[left])
+                left -= 1
+
             else:
-                right = mid
+                list.append(array[right])
+                right += 1
 
-        # left == right, which makes both left and left + k have same diff with x
-        arr = arr[left : left + k]  
-        # 排序
-        for i in range(len(arr)):
-            arr[i] = abs(arr[i]-x)
-        
-        for i in range(len(arr)):
-            min = i
-            for j in range(i+1,len(arr)):
-                if arr[j] < min:
-                    min = j
-             
-        
+            counts += 1
 
+        while left < 0 and counts < k:
+            list.append(array[right])
+            right += 1
+            counts += 1
 
+        while right >= n and counts < k:
+            list.append(array[left])
+            left -= 1
+            counts += 1
 
+        return list
 
 
+if __name__ == "__main__":
+    s = Solution()
 
-s = Solution()
-array = [1, 4, 5]
-target = 4
-k=2
-print(s.kClosest(array, target,k))
+    arr = [1,  5]
+    target = 2
+    k = 2
+
+    print(s.kClosest(arr, target, k))

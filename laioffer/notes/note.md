@@ -616,6 +616,8 @@ $$\mathbf{m}=\frac{N \Sigma(x y)-\Sigma x \Sigma y}{N \Sigma\left(x^{2}\right)-(
 
 ## Maximum Likelihood Estimation(最大似然估计)
 
+https://www.youtube.com/watch?v=fBwtJf0aW_s
+
 In statistics, maximum likelihood estimation (MLE) is a method of estimating the parameters of a probability distribution by maximizing a likelihood function, so that under the assumed statistical model the observed data is most probable.
 
 Maximum likelihood estimation is a method that determines values for the parameters of a model. The parameter values are found such that they maximise the likelihood that the process described by the model produced the data that were actually observed.
