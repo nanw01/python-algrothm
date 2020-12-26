@@ -3,34 +3,40 @@
 
 # 对半分，使用双指针技巧
 
-from LinkedList import Node,LinkedList
+from LinkedList import Node, LinkedList
+
+
 def split(head):
-    if (head is None):
+    if head is None:
         return
-    slow = head
-    fast = head
-    front_last_node = slow
-    while (fast is not None):
-        front_last_node = slow
+
+    fast = slow = front_end = head
+    while fast is not None:
+        front_end = slow
         slow = slow.next
         fast = fast.next.next if fast.next is not None else None
-    front_last_node.next = None
-    front = head
-    back = slow
-    return (front, back)
     
+    front_end.next = None
+
+    return (head,slow)
+
+
+
 
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
 node4 = Node(4)
 node5 = Node(5)
-# node6 = Node(6)
 node1.next = node2
 node2.next = node3
 node3.next = node4
 node4.next = node5
+
+
+# node6 = Node(6)
 # node5.next = node6
+
 front_node = Node()
 back_node = Node()
 

@@ -3,17 +3,17 @@ from LinkedList import LinkedList
 
 # recursively
 # 🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️
-#
-
+# 🆗
 
 def mergeTwoLists2(l1, l2):
     if not l1 or not l2:
         return l1 or l2
+
     if l1.value < l2.value:
-        l1.next = mergeTwoLists2(l1.next,l2)
+        l1.next = mergeTwoLists2(l1.next, l2)
         return l1
     else:
-        l2.next = mergeTwoLists2(l1,l2.next)
+        l2.next = mergeTwoLists2(l1, l2.next)
         return l2
 
 

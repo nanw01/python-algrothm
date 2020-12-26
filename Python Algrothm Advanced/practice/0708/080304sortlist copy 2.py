@@ -1,5 +1,5 @@
 
-# 时间复杂度 nlogn
+# 时间复杂度为nlogn
 from LinkedList import Node, LinkedList
 
 
@@ -12,29 +12,29 @@ def sortList(head):
     return merge(sortList(head), sortList(rHead))
 
 
-def merge(lHead, rHead):
-    dummyNode = dummyHead = Node(0)
-    while lHead and rHead:
-        if lHead.value < rHead.value:
-            dummyHead.next = lHead
-            lHead = lHead.next
+def merge(left, right):
+    node = head = Node(0)
+    while left and right:
+        if left.value < right.value:
+            head.next = left
+            left = left.next
         else:
-            dummyHead.next = rHead
-            rHead = rHead.next
-        dummyHead = dummyHead.next
-    if lHead:
-        dummyHead.next = lHead
-    elif rHead:
-        dummyHead.next = rHead
-    return dummyNode.next
+            head.next = right
+            right = right.next
+        head = head.next
+    if left:
+        head.next = left
+    else:
+        head.next = right
+    return node.next
 
 
 def getMiddle(head):
     if head is None:
         return head
-    slow = head
-    fast = head
-    while fast.next and fast.next.next:
+    slow = fast = head
+
+    while fast.next is not None and fast.next.next is not None:
         slow = slow.next
         fast = fast.next.next
     return slow
