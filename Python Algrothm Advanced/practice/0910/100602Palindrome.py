@@ -1,5 +1,3 @@
-# 1.0.1  Ex.1 Reverse a String
-
 def reverse(s):
     l = []
     for i in range(len(s)):
@@ -11,8 +9,13 @@ def reverse(s):
     return ''.join(r)
 
 
+
+def isPalindrome(s):
+    r = reverse(s)
+    return r == s
+
 s = "hello world"
-print(reverse(s))
+print(isPalindrome(s))
 
 s = "madamimadam"
-print(reverse(s))
+print(isPalindrome(s))

@@ -36,11 +36,11 @@ def decodeString(s):
     return stack[0][0]
 
 
-s = "30[a]2[bc]"
+s = "3[a]2[bc]"
 print(decodeString(s))
-# s = "3[a10[c]]"
-# print(decodeString(s))
-# s = "2[abc]3[cd]ef"
-# print(decodeString(s))
-# s = "12[ab]"
-# print(decodeString(s))
+s = "3[a10[c]]"
+print(decodeString(s))
+s = "2[abc]3[cd]ef"
+print(decodeString(s))
+s = "12[ab]"
+print(decodeString(s))

@@ -13,7 +13,7 @@
 def simplifyPath(path):
     lst = []
     splits = path.split("/")
-    
+    print(splits)
     for s in splits:
         if s == "":
             continue
@@ -25,7 +25,7 @@ def simplifyPath(path):
                 lst.pop()
         else:
             lst.append(s)
-    
+    print(lst)
     result = []
     if len(lst) == 0:
         return "/"
