@@ -1,6 +1,7 @@
 from HashMapBase import HashMapBase
 from SimpleUnsortedTableMap import UnsortedTableMap
 
+
 class ProbeHashMap(HashMapBase):
     """Hash map implemented with linear probing for collision resolution."""
     _AVAIL = object()       # sentinal marks locations of previous deletions
@@ -16,7 +17,7 @@ class ProbeHashMap(HashMapBase):
         If no match found, success is False and index denotes first available slot.
         """
         firstAvail = None
-        while True:                               
+        while True:
             if self._is_available(j):
                 if firstAvail is None:
                     firstAvail = j                      # mark this as first avail
@@ -35,7 +36,7 @@ class ProbeHashMap(HashMapBase):
     def _bucket_setitem(self, j, k, v):
         found, s = self._find_slot(j, k)
         if not found:
-            self._table[s] = self._Item(k,v)               # insert new item
+            self._table[s] = self._Item(k, v)               # insert new item
             self._n += 1                                   # size has increased
         else:
             self._table[s]._value = v                      # overwrite existing
@@ -52,9 +53,8 @@ class ProbeHashMap(HashMapBase):
         for j in range(len(self._table)):                # scan entire table
             if not self._is_available(j):
                 yield self._table[j]._key
-                
-    def _print_ (self):
+
+    def _print_(self):
         for bucket in self._table:
-            if bucket is not None: # a nonempty slot
+            if bucket is not None:  # a nonempty slot
                 bucket.__print__()
-                
