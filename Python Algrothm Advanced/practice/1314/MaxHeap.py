@@ -1,6 +1,5 @@
 
 
-
 class MaxHeap(object):
     def __init__(self, maxsize=None):
         self.maxsize = maxsize
@@ -29,7 +28,8 @@ class MaxHeap(object):
             raise Exception('empty')
         value = self._elements[0]    # 保存 root 值
         self._count -= 1
-        self._elements[0] = self._elements[self._count]    # 最右下的节点放到root后siftDown
+        # 最右下的节点放到root后siftDown
+        self._elements[0] = self._elements[self._count]
         self._siftdown(0)    # 维持堆特性
         return value
 
@@ -59,4 +59,4 @@ def test_maxheap():
         assert i == h.extract()
 
 
-test_maxheap() 
+test_maxheap()

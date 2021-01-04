@@ -1,3 +1,5 @@
+# 求x的n次方
+
 def fast_power(x, n):
     if n == 0:
         return 1.0
@@ -9,5 +11,4 @@ def fast_power(x, n):
         return fast_power(x * x, n // 2)
 
 
-
-print(fast_power(0,-2))
+print(fast_power(5, 3))
