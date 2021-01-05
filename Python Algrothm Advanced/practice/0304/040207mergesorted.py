@@ -29,17 +29,14 @@ def _merge_sorted(nums: list) -> list:
 
 # Wrapper
 def merge_sorted(nums: list, reverse=False) -> list:
-    import time
-    start = time.time()
     """Merge Sort"""
     nums = _merge_sorted(nums)
     if reverse:
         nums = nums[::-1]
 
-    t = time.time() - start
-    return nums, len(nums), t
+    return nums
 
 
 l = [1, 3, 5, 7, 2, 4, 6, 9, 8, 0]
-l = merge_sorted(l, reverse=False)[0]
+l = merge_sorted(l, reverse=False)
 print(l)

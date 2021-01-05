@@ -26,7 +26,7 @@ def merge_sorted_list(sorted_a, sorted_b):
             new_sorted_seq.append(sorted_b[b])
             b += 1
 
-    # 最后别忘记把多余的都放到有序数组里        
+    # 最后别忘记把多余的都放到有序数组里
     if a < length_a:
         new_sorted_seq.extend(sorted_a[a:])
     else:
