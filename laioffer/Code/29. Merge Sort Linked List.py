@@ -2,8 +2,8 @@
 
 # create Node using class Node.
 class Node:
-    def __init__(self, data):
-        self.val = data
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 
@@ -96,7 +96,7 @@ def printList(head):
         return
     curr_node = head
     while curr_node:
-        print(curr_node.data, end=" ")
+        print(curr_node.val, end=" ")
         curr_node = curr_node.next
     print(' ')
 
