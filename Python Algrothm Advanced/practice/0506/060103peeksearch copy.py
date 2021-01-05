@@ -19,12 +19,11 @@ def peak_helper(alist, start, end):
     mid = start+(end-start)//2
 
     if alist[mid] > alist[mid-1] and alist[mid] > alist[mid+1]:
-
         return mid
     if alist[mid] > alist[mid - 1] and alist[mid] < alist[mid + 1]:
         return peak_helper(alist, mid + 1, end)
     return peak_helper(alist, start, mid-1)
 
 
-alist = [1, ]
+alist = [1, 2, 7, 5, 6]
 print(search_peak(alist))

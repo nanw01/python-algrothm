@@ -17,7 +17,7 @@ def closest(self, array, target):
     while left < right:
         mid = left + (right - left) // 2
 
-        if target < arr[mid]:
+        if target < array[mid]:
             right = mid - 1
-        elif target > arr[mid]:
+        elif target > array[mid]:
             left = mid - 1
