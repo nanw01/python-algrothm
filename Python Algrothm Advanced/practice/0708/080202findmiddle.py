@@ -1,21 +1,20 @@
 # 1.0.2  Ex.2 Find the Middle Node
 
-from LinkedList import Node,LinkedList
+from LinkedList import Node, LinkedList
+
 
 def find_middle(list):
 
-
-
-    a=b=list.head
+    a = b = list.head
     while a is not None and a.next is not None:
-        a=a.next.next
-        b=b.next
-    
+        a = a.next.next
+        b = b.next
+
     return b.value
 
 
 lst = LinkedList()
-#find_middle(lst)
+# find_middle(lst)
 lst.add_last(1)
 print(find_middle(lst))
 lst.printlist()

@@ -22,3 +22,7 @@ class Solution(object):
             right += 1
         # print res, left, right
         return res
+
+
+s = Solution()
+print(s.longestPalindrome('babad'))

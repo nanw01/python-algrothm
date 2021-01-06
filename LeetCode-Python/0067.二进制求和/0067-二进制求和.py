@@ -15,7 +15,7 @@ class Solution(object):
         for char in b:
             lb.append(int(char))
         la, lb = la[::-1], lb[::-1]
-        
+
         for i in range(l1):
             if i < l2:
                 la[i] += lb[i]
@@ -25,6 +25,5 @@ class Solution(object):
                     la[i + 1] += 1
                 else:
                     la.append(1)
-                    
+
         return "".join(str(x) for x in la[::-1])
-            
