@@ -15,7 +15,7 @@ class Solution(object):
             return True
         if not root.left and not root.right:
             return True
-        
+
         def getHeight(node, h):
             if not node:
                 return h
