@@ -7,26 +7,29 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def postOrder(self, root):
+    def inOrder(self, root):
         """
         input: TreeNode root
         return: Integer[]
         """
         # write your solution here
-        res = []
-        self._postOrder(root, res)
-        return res
-
-    def _postOrder(self, root, res):
-
         if root is None:
-            return
+            return []
+        output, stack = [], []
 
-        self._postOrder(root.left, res)
-        self._postOrder(root.right, res)
-        res.append(root.val)
+        stack.append((root, 1))
+        while stack:
+            node, count = stack.pop()
 
-        return
+            if count == 2:
+                output.append(node.val)
+                if node.right:
+                    stack.append((node.right, 1))
+            if count == 1:
+                stack.append((node, count + 1))
+                if node.left:
+                    stack.append((node.left, 1))
+        return output
 
 
 t1 = TreeNode(0)
@@ -46,4 +49,4 @@ t5.right = t7
 
 
 s = Solution()
-print(s.postOrder(t1))
+print(s.inOrder(t1))

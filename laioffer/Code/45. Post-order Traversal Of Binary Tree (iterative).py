@@ -13,20 +13,24 @@ class Solution(object):
         return: Integer[]
         """
         # write your solution here
-        res = []
-        self._postOrder(root, res)
-        return res
 
-    def _postOrder(self, root, res):
+        if not root:
+            return []
+        output, stack = [], [(root, 1)]
 
-        if root is None:
-            return
-
-        self._postOrder(root.left, res)
-        self._postOrder(root.right, res)
-        res.append(root.val)
-
-        return
+        while stack:
+            node, count = stack.pop()
+            if count == 3:
+                output.append(node.val)
+            if count == 1:
+                stack.append((node, count + 1))
+                if node.left:
+                    stack.append((node.left, 1))
+            if count == 2:
+                stack.append((node, count + 1))
+                if node.right:
+                    stack.append((node.right, 1))
+        return output
 
 
 t1 = TreeNode(0)
