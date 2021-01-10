@@ -5,7 +5,6 @@ from heapq import heappush, heappop
 #     heappush(heap, item)
 
 
-
 # ordered = []
 # while heap:
 #     ordered.append(heappop(heap))
@@ -18,10 +17,10 @@ from heapq import heappush, heappop
 
 import heapq
 
-data = [1,5,3,2,8,5]
+data = [1, 5, 3, 2, 8, 5]
 heapq.heapify(data)
 print(data)
 
-# while data:
-#     print(data)
-#     print(heappop(data))
+while data:
+    print(data)
+    print(heappop(data))

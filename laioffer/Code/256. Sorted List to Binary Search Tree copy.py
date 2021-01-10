@@ -39,7 +39,7 @@ def sortedListToBST():
 # of nodes in Linked List
 
 
-def sortedListToBSTRecur(n):
+def (n):
     global head
 
     # Base Case
