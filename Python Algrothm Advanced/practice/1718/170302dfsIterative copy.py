@@ -3,22 +3,23 @@ from AdjListGraph import Vertex
 
 
 def dfsIterative(G, start, dest):
-    stack = []  # vertex
-    visited = set()  # vertex id
-    parent = {}  # vertex id
+
+    stack = []
+    visited = set()
+    parent = {}
+
     stack.append(start)
     while len(stack) != 0:
-        curr = stack.pop()  # vertex
-        print("visiting ", curr.getVertexID())
-        if (curr.getVertexID() == dest.getVertexID()):
+        curr = stack.pop()
+        print('visting:', curr.getVertexID())
+        if curr.getVertexID() == dest.getVertexID():
             return parent
-        neighbors = G.getNeighbors(curr.getVertexID())
+        neighbors = curr.getNeighbors()
         for n in neighbors:
             id = n.getVertexID()
             if id in visited:
                 continue
-            visited.add(id)
-            parent[id] = curr.getVertexID()
+            parent[id] = curr.getVertexID
             stack.append(n)
     return None
 

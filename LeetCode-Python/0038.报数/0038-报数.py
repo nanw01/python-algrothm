@@ -18,3 +18,7 @@ class Solution(object):
                 idx += 1
             record.append(tmp)
         return record[-1]
+
+
+s = Solution()
+print(s.countAndSay(4))
