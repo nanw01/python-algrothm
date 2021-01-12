@@ -8,7 +8,10 @@ class Solution(object):
         for num in nums:
             tmp = res[:]
             for item in res:
-                tmp.append(item + [num])     
+                tmp.append(item + [num])
             res = tmp[:]
-            
+
         return res
+
+
+print(Solution().subsets('123'))

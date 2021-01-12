@@ -6,13 +6,16 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
+
         def dfs(t, cnt, tmp):
             if cnt == 0:
                 res.append(tmp[:])
 
             for i in range(t + 1, n + 1):
                 dfs(i, cnt - 1, tmp + [i])
-            
+
         dfs(0, k, [])
         return res
-            
+
+
+print(Solution().combine(3, 2))
