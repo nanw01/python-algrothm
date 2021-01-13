@@ -5,22 +5,22 @@ class Solution(object):
         return: Integer[]
         """
         # write your solution here
-
-        left, right = 0, len(array) - 1
-        while left + 1 < right:
-            mid = left + (right - left) // 2
-
-            if array[mid] < target:
-                left = mid
-            elif array[mid] > target:
-                right = mid
+        if len(array) <= 2:
+            return array
+        res = []
+        left, right = 0, len(array)-1
+        while left < right:
+            sum = array[left]+array[right]
+            print(target-sum)
+            if sum < target:
+                left += 1
+            elif sum > target:
+                right -= 1
             else:
-                return [array[0], array[mid]]
-
-        #
-
-        return [array[0], array[right]]
+                pass
+            res.append([array[left], array[right]])
+        return res[-3]
 
 
 s = Solution()
-print(s.closest([1, 4, 7, 13], 7))
+print(s.closest([1, 4, 7, 13], 14))
