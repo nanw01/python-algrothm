@@ -14,20 +14,16 @@ class Solution(object):
         return: TreeNodeP
         """
         # write your solution here
-        lst_one = []
-        lst_two = []
-
-        while one.parent:
-            lst_one.append(one.parent)
+        if one is None or two is None:
+            return None
+        parent = set()
+        while one is not None:
+            parent.add(one)
             one = one.parent
-
-        while two.parent:
-            if two in lst_one:
+        while two is not None:
+            if two in parent:
                 return two
-            lst_two.append(two.parent)
             two = two.parent
-        print(lst_one, lst_two)
-
         return None
 
 

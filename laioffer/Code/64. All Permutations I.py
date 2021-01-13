@@ -5,7 +5,9 @@ class Solution(object):
         return: string[]
         """
         # write your solution here
-        return self._perm('', input, [])
+        if input is None:
+            return []
+        return list(set(self._perm('', input, [])))
 
     def _perm(self, result, nums, s):
 
@@ -18,4 +20,4 @@ class Solution(object):
         return s
 
 
-print(Solution().permutations('abc'))
+print(Solution().permutations(None))

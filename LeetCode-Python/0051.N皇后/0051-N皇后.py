@@ -23,13 +23,13 @@ class Solution(object):
         self.add = x0 + y0
         self.sub = y0 - x0
         
-        for i in range(len(tmp)): #ÅÐ¶ÏÁÐ
+        for i in range(len(tmp)): #ï¿½Ð¶ï¿½ï¿½ï¿½
             if i == x0:
                 continue
             if tmp[i][y0] == "Q":
                 return False
             
-        for i in range(min(n, len(tmp))): #ÅÐ¶Ï\
+        for i in range(min(n, len(tmp))): #ï¿½Ð¶ï¿½\
             if i == x0:
                 continue
             # print i, j
