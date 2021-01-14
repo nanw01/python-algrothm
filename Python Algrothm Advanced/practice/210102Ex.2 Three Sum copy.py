@@ -3,6 +3,7 @@ class Solution(object):
 
         res = []
         array.sort()
+        
         for i in range(len(array)-2):
             if i > 0 and array[i] == array[i-1]:
                 continue

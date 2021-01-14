@@ -32,4 +32,19 @@ def twoSum(nums, k):
     return False
 
 
+def twoSum1(nums, target):
+    dic = {}
+    for i, num in enumerate(nums):
+        if num in dic:
+            return [dic[num], i]
+        else:
+            dic[target - num] = i
+
+
 print(twoSum([1, 2, 3, 4, 5, 6, 7], 0))
+
+# print(enumerate([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+for i, num in enumerate([1, 2, 3, 4, 5, 6, 7, 8, 9]):
+    print(i, num)
+
+print(twoSum1([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
