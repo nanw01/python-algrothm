@@ -7,13 +7,13 @@ class Solution(object):
         """
         i = 0
         tmp = reader.get(i)
-        if tmp > target: #target比第一个元素都小，所以不存在
+        if tmp > target:
             return -1
         while tmp != 2147483647:
-            if tmp == target: #找到了
+            if tmp == target:
                 return i
-            if tmp > target: #后面的元素都比target大，找不到
+            if tmp > target:
                 break
             i += 1
             tmp = reader.get(i)
-        return -1 
+        return -1
