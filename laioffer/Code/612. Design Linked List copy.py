@@ -1,11 +1,17 @@
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
 class Solution(object):
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.fake_head = ListNode(None)
-        self.size = 0
+        self.head = ListNode(None)
+        self.length = 0
 
     def get(self, index):
         """
@@ -13,10 +19,12 @@ class Solution(object):
         :type index: int
         :rtype: int
         """
-        temp = self.fake_head.next
-        for _ in range(index):
-            temp = temp.next
-        return temp.val
+        if index > self.length:
+            return -1
+        res = self.head
+        for _ in range(index+1):
+            res = res.next
+        return res.val
 
     def addAtHead(self, val):
         """
@@ -24,11 +32,10 @@ class Solution(object):
         :type val: int
         :rtype: None
         """
-        new_head = ListNode(val)
-
-        new_head.next = self.fake_head.next
-        self.fake_head.next = new_head
-        self.size += 1
+        newNode = ListNode(val)
+        newNode.next = self.head.next
+        self.head.next = newNode
+        self.length += 1
 
     def addAtTail(self, val):
         """
@@ -36,8 +43,13 @@ class Solution(object):
         :type val: int
         :rtype: None
         """
-        self.get(self.size).next = ListNode(val)
-        self.size += 1
+        tail = self.head
+        for _ in range(self.length):
+            tail = tail.next
+
+        newTail = ListNode(val)
+        tail.next = newTail
+        self.length += 1
 
     def addAtIndex(self, index, val):
         """
@@ -46,11 +58,13 @@ class Solution(object):
         :type val: int
         :rtype: None
         """
-        new_node = ListNode(val)
-
-        new_node.next = self.get(index+1)
-        self.get(index).next = new_node
-        self.size += 1
+        prev = self.head
+        for _ in range(index):
+            prev = prev.next
+        newNode = ListNode(val)
+        newNode.next = prev.next
+        prev.next = newNode
+        self.length += 1
 
     def deleteAtIndex(self, index):
         """
@@ -58,16 +72,61 @@ class Solution(object):
         :type index: int
         :rtype: None
         """
-        if index == 0:
-            pass
+        prev = self.head
+        for _ in range(index-1):
+            prev = prev.next
+        prev.next = prev.next.next
+        self.length -= 1
 
-        self.get(index-1).next = self.get(index).next
-        self.size -= 1
 
 # Your Solution object will be instantiated and called as such:
+# obj = Solution()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index, val)
+# obj.deleteAtIndex(index)
+
 obj = Solution()
-param_1 = obj.get(index)
-obj.addAtHead(val)
-obj.addAtTail(val)
-obj.addAtIndex(index,val)
-obj.deleteAtIndex(index)
+
+# index = 0
+# param_1 = obj.get(index)
+
+obj.addAtHead(1)
+obj.addAtTail(3)
+obj.addAtIndex(1, 2)
+print('get', obj.get(1))
+obj.deleteAtIndex(1)
+print('get', obj.get(1))
+
+node = obj.head.next
+for _ in range(obj.length):
+    print(node.val, end=' ')
+    node = node.next
+
+# val = 222
+# obj.addAtTail(val)
+# index = 1
+# val = 333
+# obj.addAtIndex(index, val)
+# # index
+# # obj.deleteAtIndex(index)
+# node = obj.head.next
+# for _ in range(obj.length):
+#     print(node.val, end=' ')
+#     node = node.next
+# print()
+# print(obj.length)
+
+# # print(obj.get(0))
+# print(obj.getNode(1))
+# # print(obj.get(2))
+
+# print("atTail", obj.addAtTail(989))
+# print("atTail", obj.addAtTail(989))
+# print("atTail", obj.addAtTail(989))
+
+# node = obj.head
+# for i in range(obj.length+1):
+#     print(i, node.val)
+#     node = node.next

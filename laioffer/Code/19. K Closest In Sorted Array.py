@@ -12,14 +12,11 @@ class Solution(object):
         else:
             while left + 1 < right:
                 mid = left + (right-left)//2
-                
+
                 if array[mid] <= target:
                     left = mid
                 elif array[mid] > target:
                     right = mid
-
-
-
 
         counts = 0
         list = []

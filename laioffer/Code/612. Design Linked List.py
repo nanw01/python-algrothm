@@ -5,7 +5,6 @@ class ListNode(object):
         self.next = None
 
 
-
 class Solution(object):
 
     def __init__(self):
@@ -98,10 +97,9 @@ obj.addAtIndex(index, val)
 # obj.deleteAtIndex(index)
 node = obj.head.next
 for _ in range(obj.length):
-    print(node.val,end=' ')
+    print(node.val, end=' ')
     node = node.next
 print()
 print(obj.get(0))
 print(obj.get(1))
 print(obj.get(2))
-

@@ -1,3 +1,8 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 class Solution(object):
     def numberOfNodes(self, head):
         """
@@ -5,11 +10,10 @@ class Solution(object):
         return: int
         """
         # write your solution here
-         temp = self.head  # Initialise temp
-          count = 0  # Initialise count
+        count = 0
 
-           # Loop while end of linked list is not reached
-           while (temp):
-                count += 1
-                temp = temp.next
-            return count
+        while head:
+            count += 1
+            head = head.next
+
+        return count

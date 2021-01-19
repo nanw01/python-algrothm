@@ -22,6 +22,6 @@ class Solution(object):
 s = Solution()
 
 matrix = [[1, 2, 3], [4, 5, 7], [8, 9, 10]]
-target = 6
+target = 7
 
 print(s.search(matrix, target))
