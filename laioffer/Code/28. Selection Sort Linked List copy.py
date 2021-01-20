@@ -12,25 +12,28 @@ class Solution(object):
         return: ListNode
         """
         # write your solution here
-        dummy = ListNode(None)
-        dummy.next = head
-        tail = dummy
+        new_head = ListNode(None)
+        new_head.next = head
+        tail = new_head
 
         while tail.next:
             prev, curr = tail, tail.next
-            min_node, min_node_prev = curr, prev
+            min_node, min_node_predecessor = curr, prev
 
+            # 找到最小值
             while curr:
                 if curr.val < min_node.val:
-                    min_node, min_node_prev = curr, prev
+                    min_node, min_node_predecessor = curr, prev
                 prev, curr = curr, curr.next
-            min_node_prev.next = min_node.next
+            # 分离最小值
+            min_node_predecessor.next = min_node.next
 
+            # 添加到上一个最小值的后面
             next = tail.next
             tail.next = min_node
             min_node.next = next
             tail = tail.next
-        return dummy.next
+        return new_head.next
 
 
 def printList(head):
