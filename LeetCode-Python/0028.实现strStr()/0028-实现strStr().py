@@ -13,5 +13,12 @@ class Solution(object):
             if char == needle[0]:
                 if haystack[i:i + len(needle)] == needle:
                     return i
-                
+
         return -1
+
+
+print(Solution().strstr('abbaabbab', 'bbab'))
+
+
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(a[1:200])
