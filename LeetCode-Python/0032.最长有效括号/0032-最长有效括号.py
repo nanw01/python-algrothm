@@ -15,5 +15,8 @@ class Solution(object):
                     res = max(res, i - stack[-1])
                 else:
                     stack.append(i)
-                    
+
         return res
+
+
+print(Solution().longestValidParentheses('((())))((())'))

@@ -5,25 +5,25 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        edit = 0 #´ú±í±à¼­´ÎÊý
+        edit = 0 #ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½ï¿½
         distance = len(s) - len(t)
-        if abs(distance) > 1: #³¤¶È¶¼²îÁË²»Ö¹Ò»Î»£¬¿Ï¶¨²»¶Ô
+        if abs(distance) > 1: #ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½ï¿½Ë²ï¿½Ö¹Ò»Î»ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½
             return False
         if not s or not t:
             return s != t
         i, j = 0, 0
         while i < len(s) and j < len(t):
-            if s[i] == t[j]: #ÎÞÐè±à¼­
-                i += 1 #Á½¸öÖ¸Õë¶¼Ë³ÐòºóÑÓÒ»Î»
+            if s[i] == t[j]: #ï¿½ï¿½ï¿½ï¿½à¼­
+                i += 1 #ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¶¼Ë³ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Î»
                 j += 1
             else:
-                if edit: #Î¨Ò»µÄ»ú»áÒÑ¾­ÓÃÍêÁË
+                if edit: #Î¨Ò»ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     return False
-                if distance == 1: #É¾³ý
+                if distance == 1: #É¾ï¿½ï¿½
                     i += 1
-                elif distance == -1:#²åÈë
+                elif distance == -1:#ï¿½ï¿½ï¿½ï¿½
                     j += 1
-                else: #Ìæ»»
+                else: #ï¿½æ»»
                     i += 1
                     j += 1
                 edit += 1
