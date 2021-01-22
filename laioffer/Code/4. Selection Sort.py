@@ -13,5 +13,16 @@ class Solution(object):
             array[i], array[min] = array[min], array[i]
         return array
 
+    def select_sort(self, lst):
 
-print(Solution().solve([3, 5, 7, 8, 6, 4, 4, 3, 2, 2]))
+        for i in range(len(lst)):
+            min = i
+            for j in range(i+1, len(lst)):
+                if lst[j] < lst[min]:
+                    min = j
+            lst[i], lst[min] = lst[min], lst[i]
+
+        return lst
+
+
+print(Solution().select_sort([3, 5, 7, 8, 6, 4, 4, 3, 2, 2]))

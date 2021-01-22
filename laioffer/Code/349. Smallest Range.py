@@ -9,22 +9,20 @@ class Solution(object):
         """
         # write your solution here
         heap = []
-        k = len(arrays)
-        maxVal = float('inf')
         for i in range(len(arrays)):
-            heap.append((arrays[i][0], i, 0))
-            maxVal = max(arrays[i][0], maxVal)
+            if len(arrays[i]):
+                heap.append((arrays[i][0], i, 0))
         heapq.heapify(heap)
 
-        result = [float('-inf'), float('inf')]
-        while len(heap) == k:
-            minVal, array_index, ele_index = heapq.heappop(heap)
-            if maxVal - minVal < result[1] - result[0]:
-                result = [minVal, maxVal]
-            if ele_index + 1 < len(arrays[array_index]):
-                maxVal = max(maxVal, arrays[array_index][ele_index + 1])
+        result = []
+        while heap:
+            val, index_array, index_element = heapq.heappop(heap)
+            result.append(val)
+
+            if index_element+1 < len(arrays[index_array]):
                 heapq.heappush(
-                    heap, (arrays[array_index][ele_index+1], array_index, ele_index+1))
+                    heap, (arrays[index_array][index_element+1], index_array, index_element+1))
+
         return result
 
 
