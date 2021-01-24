@@ -8,4 +8,4 @@ def f(n):
     return f(n-1) + f(n-2)
 
 
-print(f(3))
+print(f(4))
