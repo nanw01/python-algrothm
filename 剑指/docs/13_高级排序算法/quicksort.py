@@ -7,8 +7,10 @@ def quicksort(array):
         return array
     pivot_idx = 0
     pivot = array[pivot_idx]
-    less_part = [array[i] for i in range(size) if array[i] <= pivot and pivot_idx != i]
-    great_part = [array[i] for i in range(size) if array[i] > pivot and pivot_idx != i]
+    less_part = [array[i]
+                 for i in range(size) if array[i] <= pivot and pivot_idx != i]
+    great_part = [array[i]
+                  for i in range(size) if array[i] > pivot and pivot_idx != i]
     return quicksort(less_part) + [pivot] + quicksort(great_part)
 
 
@@ -59,7 +61,7 @@ def test_partition():
     assert partition(l, 0, len(l)) == 3
     l = [1]
     assert partition(l, 0, len(l)) == 0
-    l = [2,1]
+    l = [2, 1]
     assert partition(l, 0, len(l)) == 1
 
 
@@ -98,11 +100,11 @@ def test_nth_element():
     array = [3, 2, 1, 5, 6, 4]
     assert nth_element(array, 0, len(array), 2) == 2
 
-    array = [2,1]
+    array = [2, 1]
     assert nth_element(array, 0, len(array), 1) == 1
     assert nth_element(array, 0, len(array), 2) == 2
 
-    array = [3,3,3,3,3,3,3,3,3]
+    array = [3, 3, 3, 3, 3, 3, 3, 3, 3]
     assert nth_element(array, 0, len(array), 1) == 3
 
 
