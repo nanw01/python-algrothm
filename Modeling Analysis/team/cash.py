@@ -1,7 +1,4 @@
-# -*- coding:utf-8 -*-
-# Python 实用宝典
-# 量化投资原来这么简单(1)
-# 2020/04/12
+
 
 import backtrader as bt
 import os
