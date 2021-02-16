@@ -1,8 +1,6 @@
-select
-    Person.FirstName,
+select Person.FirstName,
     Person.LastName,
     Address.City,
     Address.State
-from
-    Person
+from Person
     left join Address on Person.PersonId = Address.PersonId;

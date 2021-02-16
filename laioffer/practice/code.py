@@ -1,37 +1,31 @@
-
-# def changeme(mylist):
-#     mylist.append([1, 2, 3, 4])
-#     return
-
-
-# mylist = [10, 20, 30]
-# changeme(mylist)
-# print('Value outside the dunction: ', mylist)
-
-import random
-
-
 class Solution(object):
-    def __init__(self):
-        """
-        complete the constructor if needed.
-        """
-        self.currSample = 0
-        self.count = 0
 
-    def read(self, value):
+    def validPalindrome(self, input):
         """
-        read a value in the stream.
-        :type: value: int
+        input: string input
+        return: boolean
         """
-        self.count += 1
-        rand = random.randint(0, self.count - 1)
-        if rand == 0:
-            self.currSample = value
+        # write your solution here
+        return self._validPalindrome(list(input), False)
 
-    def sample(self):
-        """
-        return the sample of already read values.
-        :rtype: int
-        """
-        return self.currSample
+    def _validPalindrome(self, arr, del_mark):
+        if not arr:
+            return arr
+
+        left, right = 0, len(arr)-1
+
+        while left < right:
+
+            if arr[left] != arr[right]:
+                if del_mark:
+                    return False
+                else:
+                    return self._validPalindrome(arr[left+1: right+1], True) or self._validPalindrome(arr[left:right], True)
+            else:
+                left += 1
+                right -= 1
+
+        return True
+
+
+print(Solution().validPalindrome("oklvojceguiuooqfsvlappalvsfqoouiuigecjovlko"))
