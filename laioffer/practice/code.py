@@ -1,31 +1,80 @@
-class Solution(object):
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
-    def validPalindrome(self, input):
+
+class Solution(object):
+    def addTwoNumbers(self, node1, node2):
         """
-        input: string input
-        return: boolean
+        input: ListNode l1, ListNode l2
+        return: ListNode
         """
         # write your solution here
-        return self._validPalindrome(list(input), False)
 
-    def _validPalindrome(self, arr, del_mark):
-        if not arr:
-            return arr
+        newNode1 = self.reverse1(node1)
+        newNode2 = self.reverse1(node2)
+        fakeNode = ListNode(None)
+        curr = fakeNode
+        carry = 0
+        while newNode1 and newNode2:
+            tempSum = newNode1.val + newNode2.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode1 = newNode1.next
+            newNode2 = newNode2.next
 
-        left, right = 0, len(arr)-1
+        while newNode1:
+            tempSum = newNode1.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode1 = newNode1.next
 
-        while left < right:
+        while newNode2:
+            tempSum = newNode2.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode2 = newNode2.next
 
-            if arr[left] != arr[right]:
-                if del_mark:
-                    return False
-                else:
-                    return self._validPalindrome(arr[left+1: right+1], True) or self._validPalindrome(arr[left:right], True)
-            else:
-                left += 1
-                right -= 1
+        if carry > 0:
+            curr.next = ListNode(carry)
 
-        return True
+        return self.reverse1(fakeNode.next)
+
+    def reverse1(self, head):
+        prevNode = None
+        while head:
+            nextNode = head.next
+            head.next = prevNode
+            prevNode = head
+            head = nextNode
+
+        return prevNode
 
 
-print(Solution().validPalindrome("oklvojceguiuooqfsvlappalvsfqoouiuigecjovlko"))
+def buildList(seq):
+    f = ListNode(None)
+    c = f
+    for i in seq:
+        c.next = ListNode(i)
+        c = c.next
+
+    return f.next
+
+
+def printList(node):
+    a = []
+    while node is not None:
+        a.append(node.val)
+        node = node.next
+    return a
+
+
+node1 = buildList([1, 2, 3])
+node2 = buildList([1, 7, 8, 9])
+nodes = Solution().addTwoNumbers(node1, node2)
+print(printList(nodes))

@@ -6,40 +6,41 @@ class ListNode(object):
 
 
 class Solution(object):
-    def addTwoNumbers(self, l1, l2):
+    def addTwoNumbers(self, node1, node2):
         """
         input: ListNode l1, ListNode l2
         return: ListNode
         """
         # write your solution here
-        dummy = ListNode(0)
-        pre = dummy
+
+        newNode1 = node1
+        newNode2 = node2
+        fakeNode = ListNode(None)
+        curr = fakeNode
         carry = 0
-        while l1 or l2 or carry:
+        while newNode1 and newNode2:
+            tempSum = newNode1.val + newNode2.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode1 = newNode1.next
+            newNode2 = newNode2.next
 
-            # node1 = ListNode(2)
-            # node2 = ListNode(4)
-            # node3 = ListNode(3)
+        while newNode1:
+            tempSum = newNode1.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode1 = newNode1.next
 
-            # node1.next = node2
-            # node2.next = node3
+        while newNode2:
+            tempSum = newNode2.val + carry
+            carry = tempSum // 10
+            curr.next = ListNode(tempSum % 10)
+            curr = curr.next
+            newNode2 = newNode2.next
 
-            # node9 = ListNode(5)
-            # node8 = ListNode(6)
-            # node7 = ListNode(4)
+        if carry > 0:
+            curr.next = ListNode(carry)
 
-
-            # node9.next = node8
-            # node8.next = node7
-node1 = ListNode(9)
-node2 = ListNode(8)
-
-node9 = ListNode(1)
-node8 = ListNode(1)
-
-
-node = Solution().addTwoNumbers(node1, node9)
-
-while node:
-    print(node.val)
-    node = node.next
+        return fakeNode.next
