@@ -8,4 +8,4 @@ where h1.grade not in (
             friend f
         where h1.id = f.id1
             and h2.id = f.id2
-    )
+    );
