@@ -16,8 +16,8 @@ class Solution(object):
     def insertLast(self, value):
         if self.isFull():
             return False
-        self._items[self._first] = value
-        self._first = (self._last + 1) % len(self._items)
+        self._items[self._last] = value
+        self._last = (self._last + 1) % len(self._items)
         self._size += 1
         return True
 
@@ -36,7 +36,7 @@ class Solution(object):
         return True
 
     def getFront(self):
-        return -1 if self.isEmpty() else self._items[self._first + 1 % len(self._items)]
+        return -1 if self.isEmpty() else self._items[(self._first + 1) % len(self._items)]
 
     def getRear(self):
         return -1 if self.isEmpty() else self._items[(self._last - 1 + len(self._items)) % len(self._items)]
