@@ -1,11 +1,4 @@
-select count(distinct h1.name)
-from Highschooler h1,
-    friend f1,
-    Highschooler h2,
-    friend f2,
-    Highschooler h3
-where f1.id1 = h2.id
-    /* Write your SQL below. */
+/* Write your SQL below. */
 select count(distinct f1.id1)
 from friend f1,
     friend f2,
