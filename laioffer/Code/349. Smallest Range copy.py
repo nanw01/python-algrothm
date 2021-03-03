@@ -5,25 +5,25 @@ class Solution(object):
     def smallestRange(self, arrays):
         heap = []
         k = len(arrays)
-        maxval = float('-inf')
+        maxVal = float('-inf')
         for i in range(len(arrays)):
             if len(arrays[i]):
                 heap.append((arrays[i][0], i, 0))
-                maxval = max(maxval, arrays[i][0])
-
-        minrange = [float('-inf'), float('inf')]
+                maxVal = max(arrays[i][0], maxVal)
 
         heapq.heapify(heap)
+        result = [float('-inf'), float('inf')]
         while len(heap) == k:
-            minval, i, j = heapq.heappop(heap)
-            if maxval - minval < minrange[1] - minrange[0]:
-                minrange = [minval, maxval]
+            minVal, array_index, ele_index = heapq.heappop(heap)
 
-            if j+1 < len(arrays[i]):
-                maxval = max(maxval, arrays[i][j+1])
-                heapq.heappush(heap, (arrays[i][j+1], i, j+1))
+            if maxVal - minVal < result[1] - result[0]:
+                result = [minVal, maxVal]
+            if ele_index + 1 < len(arrays[array_index]):
+                maxVal = max(maxVal, arrays[array_index][ele_index+1])
+                heapq.heappush(
+                    heap, (arrays[array_index][ele_index+1], array_index, ele_index+1))
 
-        return minrange
+        return result
 
 
 aa = [
