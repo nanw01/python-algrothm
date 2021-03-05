@@ -10,7 +10,6 @@ class BinarySearchTree:
 
     def __init__(self, root=None):
         self._root = root
-
     def get(self, key):
         return self.__get(self._root, key)
 

@@ -1,25 +1,28 @@
-class Solution(object):
-    def findSecond(self, node):
-        if node is None:
-            return None
-        if not node.right:
-            return None
-        self.second = node.val
+class Solution:
+    """
+    @param nums: An integer array
+    @return: The length of LIS (longest increasing subsequence)
+    """
 
-        self._findSecond(node)
-        return self.second
+    def longestIncreasingSubsequence(self, nums):
+        # write your code here
+        if len(nums) <= 1:
+            return len(nums)
 
-    def _findSecond(self, node):
-        if node.right:
-            self.second = node.val
-            self._findSecond(node.right)
+        i, j = 0, 1
+        max_len = j - i
+        print(len(nums))
+        while j < len(nums):
+            print(i, j)
+            if nums[i] < nums[j]:
+                j += 1
+                max_len = max(max_len, j - i)
+            else:
 
-        if not node.left:
-            self.second = node.val
-            return
+                i = j
+                j += 1
 
-        self._findSecond(node.left)
-        self.second = node.val
+        return max_len
 
-# timeO(h)
-# space(h)
+
+print(Solution().longestIncreasingSubsequence([1, 2, 3, 4, 5]))
