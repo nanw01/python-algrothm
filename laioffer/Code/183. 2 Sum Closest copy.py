@@ -5,29 +5,24 @@ class Solution(object):
         return: Integer[]
         """
         # write your solution here
-        if len(array) <= 2:
-            return array
-        array = sorted(array)
-        left, right = 0, len(array)-1
-        res = [[array[left], array[right]]]
+        array.sort()
+        left, right = 0, len(array) - 1
+        max_diff = float('inf')
+        res = [array[left], array[right]]
         while left < right:
 
-            res.append([array[left], array[right]])
-            print(left, right, res)
-            print(abs(target - sum(res[-2])), abs(target - sum(res[-1])))
-            if abs(target - sum(res[-2])) < abs(target - sum(res[-1])):
-                return res[-2]
-            if array[left]+array[right] < target:
+            sum_val = array[left] + array[right]
+            if abs(target - sum_val) < max_diff:
+                max_diff = abs(target - sum_val)
+                res = [array[left], array[right]]
+
+            if sum_val < target:
                 left += 1
-            elif array[left]+array[right] > target:
-                right -= 1
             else:
-                return [array[left], array[right]]
-        if abs(target - sum(res[-2])) <= abs(target - sum(res[-1])):
-            return res[-2]
-        if abs(target - sum(res[-2])) > abs(target - sum(res[-1])):
-            return res[-1]
+                right -= 1
+
+        return res
 
 
 s = Solution()
-print(s.closest([2, -3, 9], 4))
+print(s.closest([1, 4, 6, 13], 7))

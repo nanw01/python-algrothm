@@ -13,31 +13,29 @@ class Solution(object):
         return: boolean
         """
         # write your solution here
-        hash = dict()
         self.ret = 0
+        hash = dict()
         self._exist(root, target, hash, 0)
-
         return self.ret > 0
 
-    def _exist(self, node, target, hash, cur):
+    def _exist(self, node, target, hash, curSum):
         if node is None:
             return
-
-        cur = node.val + cur
-        if cur == target:
+        curSum = curSum + node.val
+        if curSum == target:
             self.ret += 1
-        if (cur - target) in hash:
-            self.ret += hash[(cur-target)]
-        if cur in hash:
-            hash[cur] += 1
+        if (curSum - target) in hash:
+            self.ret += hash[(curSum-target)]
+        if curSum in hash:
+            hash[curSum] += 1
         else:
-            hash[cur] = 1
+            hash[curSum] = 1
 
-        self._exist(node.left, target, hash, cur)
-        self._exist(node.right, target, hash, cur)
+        self._exist(node.left, target, hash, curSum)
+        self._exist(node.left, target, hash, curSum)
 
-        hash[cur] -= 1
-        cur = cur - node.val
+        hash[curSum] -= 1
+        curSum = curSum - node.val
 
         return
 

@@ -1,28 +1,35 @@
-class Solution:
-    """
-    @param nums: An integer array
-    @return: The length of LIS (longest increasing subsequence)
-    """
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        input: ListNode head
+        return: boolean
+        """
+        # write your solution here
+        if head is None or head.next is None:
+            return True
 
-    def longestIncreasingSubsequence(self, nums):
-        # write your code here
-        if len(nums) <= 1:
-            return len(nums)
+        slow = head
+        fast = head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-        i, j = 0, 1
-        max_len = j - i
-        print(len(nums))
-        while j < len(nums):
-            print(i, j)
-            if nums[i] < nums[j]:
-                j += 1
-                max_len = max(max_len, j - i)
-            else:
+        prev = None
+        while slow:
+            newNode = slow.next
+            slow.next = prev
+            prev = slow
+            slow = newNode
 
-                i = j
-                j += 1
+        while prev:
+            if prev.val != head.next:
+                return False
+            prev = prev.next
+            head = head.next
 
-        return max_len
-
-
-print(Solution().longestIncreasingSubsequence([1, 2, 3, 4, 5]))
+        return True
