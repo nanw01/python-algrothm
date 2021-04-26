@@ -5,8 +5,8 @@ class Solution(object):
         return: int
         """
         # write your solution here
-        return set(list(range(1, len(array)+1)))-set(array)
+        return list(set(list(range(1, len(array)+2)))-set(array))[0]
 
 
 s = Solution()
-print(s.missing([12, 11, 10, 9, 4, 5, 6, 7, 2, 3, 8]))
+print(s.missing([]))
