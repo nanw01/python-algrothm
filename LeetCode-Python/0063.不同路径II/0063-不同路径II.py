@@ -8,7 +8,7 @@ class Solution(object):
             return 0
         m, n = len(obstacleGrid[0]), len(obstacleGrid)
         dp = [[0 for _ in range(m)]for _ in range(n)]
-        
+
         for i in range(m):
             if obstacleGrid[0][i] != 1:
                 dp[0][i] = 1
@@ -16,11 +16,11 @@ class Solution(object):
                 break
         for j in range(n):
             if obstacleGrid[j][0] != 1:
-                
+
                 dp[j][0] = 1
             else:
                 break
-            
+
         for i in range(1, n):
             for j in range(1, m):
                 if obstacleGrid[i][j] != 1:
