@@ -1,11 +1,12 @@
+# Write your MySQL query statement below
 select round(
         ifnull(
             (
                 select count(distinct requester_id, accepter_id)
-                from request_accepted
+                from RequestAccepted
             ) / (
                 select count(distinct sender_id, send_to_id)
-                from friend_request
+                from FriendRequest
             ),
             0
         ),
