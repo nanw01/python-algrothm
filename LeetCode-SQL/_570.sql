@@ -5,4 +5,4 @@ where Id in (
         from Employee
         group by ManagerId
         having count(*) >= 5
-    );
+    )
