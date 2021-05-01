@@ -1,3 +1,4 @@
+# Write your MySQL query statement below
 select round(
         sqrt(
             min(power(p1.x - p2.x, 2) + power(p1.y - p2.y, 2))
