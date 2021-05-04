@@ -1,3 +1,4 @@
+# Write your MySQL query statement below
 select s.sub_id as post_id,
     (
         select count(distinct(s1.sub_id))
