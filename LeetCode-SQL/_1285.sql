@@ -1,3 +1,4 @@
+# Write your MySQL query statement below
 select l1.log_id as start_id,
     min(l2.log_id) as end_id
 from (
@@ -7,7 +8,7 @@ from (
                 select log_id
                 from Logs
             )
-    ) l1,
+    ) as l1,
     (
         select log_id
         from Logs
@@ -15,6 +16,6 @@ from (
                 select log_id
                 from Logs
             )
-    ) l2
+    ) as l2
 where l1.log_id <= l2.log_id
 group by l1.log_id;
