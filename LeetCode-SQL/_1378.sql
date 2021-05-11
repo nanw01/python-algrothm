@@ -1,4 +1,4 @@
---# Write your MySQL query statement below
+# Write your MySQL query statement below
 select uni.unique_id,
     emp.name
 from Employees emp
