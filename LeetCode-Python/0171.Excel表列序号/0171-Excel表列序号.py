@@ -7,5 +7,8 @@ class Solution(object):
         res = 0
         for i, char in enumerate(s):
             res *= 26
-            res += 1 + ord(char) - ord("A")           
+            res += 1 + ord(char) - ord("A")
         return res
+
+
+print(Solution().titleToNumber(2))
