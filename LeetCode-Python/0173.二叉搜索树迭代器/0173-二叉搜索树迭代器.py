@@ -13,7 +13,7 @@ class BSTIterator(object):
         """
         self.stack = []
         self.cur = root
-        
+
     def next(self):
         """
         @return the next smallest number
@@ -29,7 +29,6 @@ class BSTIterator(object):
                 self.cur = self.cur.right
 
                 return res
-            
 
     def hasNext(self):
         """
