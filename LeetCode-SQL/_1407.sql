@@ -7,3 +7,13 @@ from rides r
 group by name
 order by 2 desc,
     1 asc;
+--
+--
+# Write your MySQL query statement below
+select u.name,
+    sum(ifnull(r.distance, 0)) as travelled_distance
+from Users as u
+    left join Rides as r on u.id = r.user_id
+group by u.name
+order by travelled_distance desc,
+    name asc;

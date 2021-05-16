@@ -1,4 +1,4 @@
---# Write your MySQL query statement below
+# Write your MySQL query statement below
 select title
 from Content
 where Kids_content = 'Y'

@@ -1,5 +1,4 @@
---# Write your MySQL query statement below
---credit: https://leetcode.com/problems/get-the-second-most-recent-activity/discuss/530992/MySQL-solution-184ms-no-subquery
+# Write your MySQL query statement below
 select *
 from UserActivity
 group by username
