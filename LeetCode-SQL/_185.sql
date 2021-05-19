@@ -8,4 +8,20 @@ where 3 >(
         from employee e2
         where e2.salary > e.salary
             and e.DepartmentId = e2.DepartmentId
-    )
+    );
+# Write your MySQL query statement below
+select Department,
+    Employee,
+    Salary
+from (
+        select d.Name as Department,
+            e.Name as Employee,
+            e.Salary,
+            dense_rank() over(
+                partition by e.DepartmentId
+                order by e.Salary desc
+            ) as num
+        from Employee as e
+            left join Department as d on e.DepartmentId = d.Id
+    ) as ll
+where ll.num < 4
