@@ -1,5 +1,172 @@
 # Summary
 
+## Data Engineer Introduction
+
+**Cloud**
+
+problems：
+
+1. data processing
+
+   Self-host data-center
+
+   1. cover electrical and maintenance costs
+   2. Peak vs. quiet moments: hard to optimize
+
+2. data storage 
+
+   1. diaster will strike
+   2. need different geographical locations
+
+
+
+Storage : AWS S3, Azure Blob Storage, Google Cloud Storage
+
+Computation : AWS EC2, Azure Virtual Machines, Google Compute Engine
+
+Databases : AWS RDS, Azure SQL Database, Google Cloud SQL、
+
+
+
+**Structured and unstructured data**
+
+Structured: database schema, relational database
+
+Semi-structured : Json
+
+Unstructured: schemaless, more like files 
+
+**SQL and NoSQL**
+
+SQL: Tables, Database schema, Relational databases
+
+NoSQL: Non-relational databases, structured or unstructured, key-value stores(caching), Document DB(JSON objects)
+
+
+
+**Parallel compution frameworks**
+
+Apache hadoop
+
+1. HDFS
+2. MapReduce
+3. Hive
+   1. runs in hadoop
+   2. structured query language: Hive SQL
+   3. Initially Mapreduce, now other tools
+
+
+
+Spark
+
+1. Resilient distributed datasets(RDD)
+   1. Spark relies on them
+   2. similar to list of tuples
+   3. transformations : .map() or .filter() 
+   4. actions: .count() or .first()
+2. PySpark
+   1. pyhton interface to spark
+   2. dataframe abstraction
+   3. looks similar to pandas
+
+
+
+**Workflow scheduling frameworks**
+
+DAGs : Directed Acyclic Graph
+
+1. Set of nodes
+2. Directed edges
+3. No cycle
+
+Tools : 
+
+- Linux's cron
+- Spotify's Luigi
+- Apache Airflow : an example DAG
+
+
+
+**Extract**
+
+- From Unstructureed, Flat files
+- From Josn : javascript object notation, semi-structured, atomic:number,string,bopolean, null, composite:array,object
+- From Web through APIs
+- From Database
+  - Applications database
+    - transactions
+    - Inserts or changes
+    - OLTP
+    - Row-oriented
+  - Analytical database
+    - OLAP
+    - Column-oriented
+
+
+
+**Transform**
+
+Kind of transformations
+
+- Selection of attribute
+- Translation of code value
+- Data validation
+- Splitting columns into multiple columns
+- Joining from multiple sources
+
+
+
+
+
+**Loading**
+
+Analytics database
+
+- Aggregate queries
+- Online analytical processing(OLAP)
+- Column-orientd
+- Queries about subset of cilumns
+- Parallelizaiton
+
+Applications database
+
+- Lots of transactions
+- Online transaction processing
+- Row-oriented
+- Stored per recoed
+- Added per transaction
+- E.G. adding customer is fast
+
+
+
+Mpp Databases : Massivelly Parallel Processing Databases
+
+- Amazon Redshfit
+- Azure SQL Data Warehouse
+- Google BigQuery
+
+
+
+
+
+Data engineering toolbox
+
+- Databases
+- Parallel computing & frameworks (Spark)
+- Workflow scheduling with Airflow
+
+Extract, Load and Transform(ETL)
+
+- Extract : get data from several sources
+- Transform : perform transformations using parallel computing
+- Load: load data into target database
+
+
+
+
+
+
+
 
 
 ## Shell
@@ -710,111 +877,227 @@ Let's review everything we've worked with during this course. We started with le
 
 
 
-## Cloud
+## DataBase
 
-problems：
+### database design
 
-1. data processing
-
-   Self-host data-center
-
-   1. cover electrical and maintenance costs
-   2. Peak vs. quiet moments: hard to optimize
-
-2. data storage 
-
-   1. diaster will strike
-   2. need different geographical locations
-
-
-
-Storage : AWS S3, Azure Blob Storage, Google Cloud Storage
-
-Computation : AWS EC2, Azure Virtual Machines, Google Compute Engine
-
-Databases : AWS RDS, Azure SQL Database, Google Cloud SQL、
-
-
-
-**Structured and unstructured data**
-
-Structured: database schema, relational database
-
-Semi-structured : Json
-
-Unstructured: schemaless, more like files 
-
-**SQL and NoSQL**
-
-SQL: Tables, Database schema, Relational databases
-
-NoSQL: Non-relational databases, structured or unstructured, key-value stores(caching), Document DB(JSON objects)
-
-
-
-**Parallel compution frameworks**
-
-Apache hadoop
-
-1. HDFS
-2. MapReduce
-3. Hive
-   1. runs in hadoop
-   2. structured query language: Hive SQL
-   3. Initially Mapreduce, now other tools
-
-
-
-Spark
-
-1. Resilient distributed datasets(RDD)
-   1. Spark relies on them
-   2. similar to list of tuples
-   3. transformations : .map() or .filter() 
-   4. actions: .count() or .first()
-2. PySpark
-   1. pyhton interface to spark
-   2. dataframe abstraction
-   3. looks similar to pandas
-
-
-
-**Workflow scheduling frameworks**
-
-DAGs : Directed Acyclic Graph
-
-1. Set of nodes
-2. Directed edges
-3. No cycle
-
-Tools : 
-
-- Linux's cron
-- Spotify's Luigi
-- Apache Airflow : an example DAG
-
-
-
-**Extract**
-
-- From Unstructureed, Flat files
-- Josn : javascript object notation, semi-structured, atomic:number,string,bopolean, null, composite:array,object
+- shcemas : logically organized?
+- Normalization : minimal dependency and redundancy?
+- Views : Joins?
+- Access control 
+- DBMS : pick between all the SQL and noSQL options?
 
 
 
 
 
+|         | OLTP                                   | OLAP                                          |
+| ------- | -------------------------------------- | --------------------------------------------- |
+| Purpose | support daily transaction              | Report and analyze data                       |
+| Design  | Application-oriented                   | Subject-oriented                              |
+| Data    | Up-to-date, operational                | Consolidated, historical                      |
+| Size    | Snapshot, gigabytes                    | Archive, terabytes                            |
+| Queries | Simple transactions & frequent updates | Complex, aggregate queriees & limited updates |
+| Users   | Thousands                              | hundres                                       |
+
+
+
+| Structured data                     | Unstructured data                  | Semi-structured data          |
+| ----------------------------------- | ---------------------------------- | ----------------------------- |
+| Follows a schema                    | Schemaless                         | does not follow larger schema |
+| Define data type & relationshops    | Makes up most of data in the world | Self-describing structure     |
+| SQL,tables in a realtional database | Photos, chat logs, MP3             | NoSQL,XML,JSON                |
+
+
+
+**Data warehouses**
+
+- Optimized for analytics - OLAP
+  - Organized for reading/aggregating data
+  - Usually read-only
+- Contains data from multiple sources
+- Massively Parallel Processing (MPP)
+- Typically uses a denormalized schema and dimensional modeling
+
+**Data marts**
+
+- Subset of data warehouses
+- Dedicated to a specific topic
+
+**Data lakes**
+
+- Store all types of data at a lower cost
+  - e.g., raw, operational databases, loT device logs, real-time, relational and non-relational
+- Retains all data and can take up petabytes
+- Schema-on-read as pposed to schema-on-write
+- need to catalog data otherwise becomes a data swamp
+- run big data analytics using services such as Apache Spark and Hadoop
+  - Useful for deep learning and ata discovery because activities require so much data
+
+
+
+![image-20210523145033875](https://tva1.sinaimg.cn/large/008i3skNgy1gqsxx1l473j314s0la0xk.jpg)
+
+
+
+Data modeling : process of creating a data model for the data to be stored
 
 
 
 
 
+Data Models
+
+[Introduction to Data Modelling. What is Data Modelling? | by Sagar Lad | Sagar Explains Azure and Analytics : Data Engineering Series | Medium](https://medium.com/sagar-explains-azure-and-analytics-data-engineerin/introduction-to-data-modelling-c0c44432ec0b#:~:text=A data model helps design,to create a physical database.)
+
+1. Conceptual data model
+
+   describes entities, relationship, and attributes
+
+2. Logical data model
+
+   defines tables, cilumns, relationships
+
+3. Physical data model
+
+   Describe physical storage
+
+
+
+Dimensional modeling
+
+*Dimensional Modeling* (DM) is a data structure technique optimized for data storage in a Data warehouse.
+
+
+
+Star schema
+
+Dimensional  modeling: star schema
+
+Fack tables
+
+- Holds records of a metric
+- Changes regularly
+- Connects to dimensions via foreign keys
+
+Demension tables
+
+- Holds descriptioons of attributes
+- Does not change as often
+
+![image-20210523153438798](https://tva1.sinaimg.cn/large/008i3skNgy1gqsz6vs4ndj31820j4ago.jpg)
+
+![image-20210523153506949](https://tva1.sinaimg.cn/large/008i3skNgy1gqsz7cyscaj311a0j4n1f.jpg)
+
+
+
+Same fact table, different dimensions
+
+Star schemas : one dimension
+
+Snowflake schemas : more than one dimension. Because dimension tables are normalized.
+
+Normalization
+
+Normal forms(NF)
+
+Data anomalies : if **not** normalize enough
+
+1. Updata anomaly
+2. Insertion anomaly
+3. Deletion anomaly
+
+
+
+**Database Views**
+
+Views are **virtual tables** that can be a great way to optimize your database experience. Virtual table that is not part od the physical schema
+
+Benefits of view
+
+- does't take up storage
+
+- A form of access control
+  - Hide sensitive columns and restrict what user can see
+- Masks complexity of queried
+  - Userful for highly normalized schemas
+
+Managing views
+
+- Aggregation: SUM(), AVG(), COUNT(), MIN(), MAX(), GROUP BY, etc
+- Joins: INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
+- Conditinals: WHERE, HAVING, UNIQUE, NOT NULL, AND, OR,  >, < , etc
+
+
+
+Granting and revokeing access to a view
+
+GRANT privilege(s) or REVOKE privilege(s)
+
+ON object
+
+TO role or FROM role
+
+- Privileges: SELECT, INSERT, UPDATE, DELETE, etc
+
+- Objects: table, view, schema
+- Roles: a database user or a group of database users
 
 
 
 
 
+Updating a view
 
+Inserting into a view
+
+- Not all views are insertable
+
+- Avoid  modifying data through view
+
+Dropping a view
+
+Redefining a view
+
+Altering a view
+
+
+
+
+
+Materialized views
+
+
+
+Views
+
+- known as non-materialized view
+
+Materialized views
+
+- Stores the  query results, not the query
+- querying a materialized view means accessing the stored query results
+  - not running the query like a non-materialized view
+- Refreshed or rematerilized when prompted or scheduled
+
+
+
+When to use materialized view
+
+- Long running queries
+- Underlying query results don't change often
+- Data warehouses  because OLAP is not writ-intensive
+  - Save on computational cost of frequent queries
+
+
+
+Managing dependencies
+
+
+
+- Materialized views often depend onother  materialized views
+
+- Creates a dependency chain when refreshing views
 
 
 
