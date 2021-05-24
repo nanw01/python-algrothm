@@ -1378,13 +1378,44 @@ Example: **neo4j**
 
 
 
+## Spark
+
+Big data: Volume, Variety and Velocity
+
+Big Data concepts and Terminology
+
+- Clustered computing: Collection of resources of multiple machines
+- Parallel computing: Simultaneous computation
+- Distributed computing: Collection of nodes (networked computers) that run in parallel
+- Batch processing: Breaking the job into small pieces and running them on individual machines
+- Real-time processing: Immediate processing of data
 
 
 
+Processing Systems
+
+**Hadoop/MapReduce**: Scalable and fault tolerant framework wri en in Java
+
+- Open source
+- Batch processing
+
+**Apache Spark:** General purpose and lightning fast cluster computing system
+
+- Open source
+- Both batch and real-time data processing
 
 
 
+**Features**
 
+- Cluster computing
+- Efficent in-memory computation for large data sets
+- Lighting fast data processing framework
+- Provides  support for java, scala, python,R, and SQL
+
+
+
+**Spark Components:**
 
 
 
