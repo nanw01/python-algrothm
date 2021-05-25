@@ -343,8 +343,6 @@ Crontab -l
 #
  echo "* * * * * python create_model.py" | crontab
  
- 
- 
 .---------------- minute (0 - 59)
 | .------------- hour (0 - 23)
 | | .---------- day of month (1 - 31)
@@ -352,24 +350,8 @@ Crontab -l
 | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed ... 
 | | | | |
 * * * * * command-to-be-executed
-
-
- 
- 
- 
- 
- 
- 
  
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -909,6 +891,12 @@ Let's review everything we've worked with during this course. We started with le
 | Define data type & relationshops    | Makes up most of data in the world | Self-describing structure     |
 | SQL,tables in a realtional database | Photos, chat logs, MP3             | NoSQL,XML,JSON                |
 
+- 1) Defined vs Undefined Data 
+- 2) Qualitative vs Quantitative Data
+- 3) Storage in Data Houses vs Data Lakes
+- 4) Ease of Analysis
+- 5) Predefined Format vs Variety of Formats
+
 
 
 **Data warehouses**
@@ -1417,11 +1405,278 @@ Processing Systems
 
 **Spark Components:**
 
+- Spark SQL
+- MLlib
+- GraphX
+- Spark Streaming
+
+
+
+Spark modes of deployment
+
+- Local model: single machine such as your laptop
+  - convennient for  testing, debugging and demonstration
+- Cluster model: Set of pre defined machines
+  - Good for production
+- Workflow: local -> clusters
+- No code change necessary
+
+
+
+**Spark shell**
+
+- Interactive environment for running Spark jobs
+- Helpful for fast interactive prototyping
+- Spark’s shells allow interacting with data on disk or in memory
+
+
+
+**SparkContext**
+
+- An entry point into the world of Spark
+- An entry point is a way of connecting to Spark cluster
+- An entry point is like a key to the house
+
+
+
+**RDD**
+
+Resilient Distributed Datasets
+
+- Resilient: Ability to withstand failures
+- Distributed: Spanning across multiple machines
+- Datasets: Collection of partitioned data e.g, Arrays, Tables, Tuples etc.,
+
+
+
+**PySpark operations**
+
+- **Transformations** : **create** new RDDs
+  - map()
+  - filter()
+  - flatMap()
+  - union()
+
+- **Actions** : perform **conputation** on the RDDs
+  - collect()
+  - take(N)
+  - first()
+  - count()
+
+
+
+**Pair RDDs**
+
+- Two common ways to create pair RDDs
+  - From a list of key-value tuple
+  - From a regular RDD
+
+Pair RDDs Transformations
+
+- all regular transformations
+  - map()
+  - filter()
+  - flatMap()
+  - union()
+- paried RDD Transformations (poperate onkey value pairs)
+  - reduceByKey(func): Combine values with the same key
+  - groupByKey(): Group values with the same key
+  - sortByKey(): Return an RDD sorted by the key
+  - join(): Join two pair RDDs based on their key
 
 
 
 
 
+
+
+MapReduce流程：input->Splitting->Mapping->Shuffling->Reducing-> result
+
+![image-20210524173153342](https://tva1.sinaimg.cn/large/008i3skNgy1gqu87a4mqkj315o0ju4fc.jpg)
+
+
+
+
+
+**Actions**
+
+- reduce()
+- saveAsTextFile()
+- countByKey()
+- collectAsMap()
+
+
+
+
+
+**PySpark DataFrames**
+
+- PySpark SQL is a Spark library for structured data. It provides more information about the structure of data and computation
+- PySpark DataFrame is an immutable distributed collection of data with named columns
+- Designed for processing both structured (e.g relational database) and semi-structured data (e.g JSON)
+- Dataframe API is available in Python, R, Scala, and Java
+- DataFrames in PySpark support both SQL queries ( SELECT * from table ) or expression methods ( df.select() )
+
+
+
+
+
+SparkContext is the main entry point for creating RDDs
+
+
+
+SparkSession provides a single point of entry to interact with Spark DataFrames
+
+SparkSession is used to create DataFrame, register DataFrames, execute SQL queries
+
+SparkSession is available in PySpark shell as spark
+
+
+
+
+
+DataFrame operator
+
+- Transformations
+
+  - select(), ,lter(), groupby(), orderby(), dropDuplicates() and withColumnRenamed()
+
+- Actions
+
+  - printSchema(), head(), show(), count(), columns and describe()
+
+  
+
+
+
+
+
+DataFrame API vs SQL queries
+
+- In PySpark You can interact with SparkSQL through DataFrame API and SQL queries
+- The DataFrame API provides a programmatic domain-speci,c language (**DSL**) for data
+- DataFrame transformations and actions are **easier to construct programmatically**
+- SQL queries can be concise and **easier to understand** and **portable**
+- The operations on DataFrames can also be done using SQL queries
+
+
+
+**Data Visualization**
+
+Plotting graphs
+
+- pyspark_dist_explore library
+- toPandas()
+- HandySpark library
+
+
+
+
+
+Pandas DataFrame vs PySpark DataFrame
+
+- Pandas DataFrames are in-memory, single-server based structures and operations on PySpark run in parallel
+- The result is generated as we apply any operation in Pandas whereas operations in PySpark
+- DataFrame are lazy evaluation
+- Pandas DataFrame as mutable and PySpark DataFrames are immutable
+- Pandas API support more operations than PySpark Dataframe API
+
+
+
+HandySpark method of visualization
+
+**HandySpark** is a package designed to improve PySpark user experience
+
+
+
+
+
+
+
+**PySpark MLlib** is a component of Apache Spark for machine learning
+
+ML Algorithms
+
+- Collaborative filtering
+- Classification
+- Clustering 
+
+Featurization
+
+- Feature extraction
+- transformation
+- Dimensionality reduction
+- Selection 
+
+Piplines:
+
+- tools fpr constructing
+- Evaluating 
+- Tuning ML Pipeline
+
+
+
+
+
+Why PySpark MLlib?
+
+- Scikit-learn is a popular Python library for data mining and machine learning
+- Scikit-learn algorithms **only work for small datasets on a single machine**
+- Spark's MLlib algorithms are **designed for parallel processing on a cluster**
+- Supports languages such as Scala, Java, and R
+- Provides a **high-level API** to build machine learning pipelines
+
+
+
+
+
+PySpark MLlib Algorithms
+
+- Classification (Binary and Multiclass) and Regression: 
+  - Linear SVMs, 
+  - logistic regression,
+  - decision trees, 
+  - random forests, 
+  - gradient-boosted trees, 
+  - naive Bayes, 
+  - linear least squares,
+  - Lasso, 
+  - ridge regression, 
+  - isotonic regression
+- Collaborative filtering: 
+  - Alternating least squares (ALS)
+- Clustering: 
+  - K-means, 
+  - Gaussian mixture, 
+  - Bisecting K-means and 
+  - Streaming K-Means
+
+```python
+# pyspark.mllib.recommendation
+from pyspark.mllib.recommendation import ALS
+# pyspark.mllib.classification
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS
+# pyspark.mllib.clustering
+from pyspark.mllib.clustering import KMeans
+```
+
+
+
+
+
+
+
+**Collaborative filtering**
+
+- Collaborative ,ltering is ,nding users that share common interests
+- Collaborative ,ltering is commonly used for recommender systems
+- Collaborative ,ltering approaches
+  - User-User Collaborative  ltering: Finds users that are similar to the target user
+  - Item-Item Collaborative  ltering: Finds and recommends items that are similar to items with the target user
+
+
+
+**Classification** is a supervised machine learning algorithm for sorting the input data into different categories
 
 
 
