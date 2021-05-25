@@ -46,7 +46,7 @@ NoSQL: Non-relational databases, structured or unstructured, key-value stores(ca
 
 **Parallel compution frameworks**
 
-Apache hadoop
+**Apache hadoop**
 
 1. HDFS
 2. MapReduce
@@ -57,7 +57,7 @@ Apache hadoop
 
 
 
-Spark
+**Spark**
 
 1. Resilient distributed datasets(RDD)
    1. Spark relies on them
@@ -933,9 +933,26 @@ Data modeling : process of creating a data model for the data to be stored
 
 
 
+A data lake is a vast pool of raw data, the purpose for which is not yet defined. 
+
+A data warehouse is a repository for structured, filtered data that has already been processed for a specific purpose.
 
 
-Data Models
+
+|                 | **Data Lake**                         | **Data Warehouse**                          |
+| --------------- | ------------------------------------- | ------------------------------------------- |
+| Data Structure  | Raw                                   | Processed                                   |
+| Purpose of Data | Not Yet Determined                    | Currently In Use                            |
+| Users           | Data Scientists                       | Business Professionals                      |
+| Accessibility   | Highly accessible and quick to update | More complicated and costly to make changes |
+
+
+
+
+
+
+
+**Data Models**
 
 [Introduction to Data Modelling. What is Data Modelling? | by Sagar Lad | Sagar Explains Azure and Analytics : Data Engineering Series | Medium](https://medium.com/sagar-explains-azure-and-analytics-data-engineerin/introduction-to-data-modelling-c0c44432ec0b#:~:text=A data model helps design,to create a physical database.)
 
@@ -953,13 +970,13 @@ Data Models
 
 
 
-Dimensional modeling
+**Dimensional modeling**
 
 *Dimensional Modeling* (DM) is a data structure technique optimized for data storage in a Data warehouse.
 
 
 
-Star schema
+**Star schema**
 
 Dimensional  modeling: star schema
 
@@ -985,6 +1002,8 @@ Same fact table, different dimensions
 Star schemas : one dimension
 
 Snowflake schemas : more than one dimension. Because dimension tables are normalized.
+
+
 
 Normalization
 
