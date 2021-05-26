@@ -1701,3 +1701,21 @@ from pyspark.mllib.clustering import KMeans
 
 
 
+
+
+
+
+
+
+**AWS Cloud**
+
+S3
+
+EC2
+
+Lambda
+
+
+
+AWS Lambda is an on-demand cloud computing resource offered as function-as-a-service by AWS. 
+
