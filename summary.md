@@ -1741,3 +1741,18 @@ You can use AWS Glue to understand your data assets.
 
 
 
+
+
+
+
+Amazon Athena
+
+
+
+
+
+
+
+
+
+Amazon SageMaker console 
