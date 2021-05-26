@@ -1717,5 +1717,27 @@ Lambda
 
 
 
-AWS Lambda is an on-demand cloud computing resource offered as function-as-a-service by AWS. 
+**AWS Lambda** is an on-demand cloud computing resource offered as function-as-a-service by AWS. 
+
+
+
+
+
+**AWS Glue** is a fully managed ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize your data, clean it, enrich it, and move it reliably between various data stores and data streams. 
+
+AWS Glue is designed to work with semi-structured data.
+
+
+
+You can use AWS Glue to organize, cleanse, validate, and format data for storage in a data warehouse or data lake. 
+
+You can use AWS Glue when you run serverless queries against your Amazon S3 data lake. 
+
+You can create event-driven ETL pipelines with AWS Glue. 
+
+You can use AWS Glue to understand your data assets. 
+
+
+
+
 
