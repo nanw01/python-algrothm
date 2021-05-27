@@ -980,11 +980,11 @@ A data warehouse is a repository for structured, filtered data that has already 
 
 Dimensional  modeling: star schema
 
-Fack tables
+Fact tables
 
 - Holds records of a metric
 - Changes regularly
-- Connects to dimensions via foreign keys
+- Connects to dimensionsS via foreign keys
 
 Demension tables
 
@@ -1014,6 +1014,28 @@ Data anomalies : if **not** normalize enough
 1. Updata anomaly
 2. Insertion anomaly
 3. Deletion anomaly
+
+
+
+
+
+- 3NF is designed to provide consistent write performances to support OLTP application.
+
+- 3NF is designed to a single application. The access path of data is usually not optimized for range scans and aggregations
+
+- 3NF is designed in such way that business analytics need to perform multiple joins to represent a single business concept.
+
+- 3NF is designed to present a snapshot of business state or process while no history is provided nor does business process itself can be clearly presented.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1281,6 +1303,12 @@ Choosing a data integration tool
 - Scalable
 
 
+
+
+
+**Database Management System (DBMS)** is a software that is used to define, create and maintain a database and provides controlled access to the data.
+
+**Relational Database Management System (RDBMS)** is an advanced version of a DBMS.
 
 
 
