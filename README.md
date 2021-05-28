@@ -16,17 +16,6 @@ https://www.youtube.com/watch?v=fc5WPKnbam8&ab_channel=AmazonWebServicesAmazonWe
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 https://077448254281.signin.aws.amazon.com/console
 
 

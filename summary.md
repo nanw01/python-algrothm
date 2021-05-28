@@ -1883,6 +1883,23 @@ Hive is SQL engine on Hadoop
 
 **ETL**
 
+Extract, Transform, Load
+
+- Data intergration
+- Schema transformation : 3NF-> Star Schema
+- Data standardization
+
+ETL cycles:
+
+- Extract raw data
+- Cleaning, recode, derive data elements
+- Load to target schema
+
+Challenges
+
+- Data Lineage
+- Process rebustness
+- Performance
 
 
 
@@ -1890,18 +1907,28 @@ Hive is SQL engine on Hadoop
 
 
 
+A good ETL process is 4R
+
+- **Readable** – process and code is well designed in the way that it is intuitive for people to understand.
+- **Repeatable** – process should be deterministic. Given the same set of parameters, the process always produce the same results.
+- **Recoverable** – process can recover from a set of unpredicted failures.
+- **Resource-aware** – efficient process to utilize compute resources wisely
 
 
 
+**Snoflake** : Cloud native Datawarehouse
+
+- Scalable
+- Software as service (zero installation)
+- MPP Computing
+- Split Storage and Computing
+- Modernized SQL language : native support to json .
+- Cloud native security integration
+- Lots of other convenience features (DR, replication, data share, etc. etc. )
 
 
 
-
-
-
-
-
-
+![image-20210528141736036](https://tva1.sinaimg.cn/large/008i3skNgy1gqyp2geun9j31jx0u07wi.jpg)
 
 
 
