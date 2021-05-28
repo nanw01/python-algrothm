@@ -905,7 +905,7 @@ Let's review everything we've worked with during this course. We started with le
   - Organized for reading/aggregating data
   - Usually read-only
 - Contains data from multiple sources
-- Massively Parallel Processing (MPP)
+- **Massively Parallel Processing** (MPP)
 - Typically uses a denormalized schema and dimensional modeling
 
 **Data marts**
@@ -984,12 +984,42 @@ Fact tables
 
 - Holds records of a metric
 - Changes regularly
-- Connects to dimensionsS via foreign keys
+- Connects to dimensions via foreign keys
 
 Demension tables
 
 - Holds descriptioons of attributes
 - Does not change as often
+
+Fact Table:
+
+- Fact is an atomic presentation of certain business measurements (dollars, counts etc.)
+
+- Fact table’s atomic level (most granular level) is defined by the combination of dimension keys.
+
+Dimension Table:
+
+- Dimensions are “things” that are used to slice the data.
+
+- Dimensions are usually organized in hierarchies of categories, levels and members.
+
+- Dimensions can be shared with multiple facts to provide correlation.
+
+- Dimension tables are usually carry a “surrogate key” as the primary key.
+
+- Dimension tables usually has a multi-part business key.
+
+- Dimension table itself can be further normalized to provide higher level of granularity and flexibility.
+
+- Changing dimensions:
+  - 0 – no change
+  - 1 – overwrite old value
+  - 2 – add new value while keep history
+  - 3 – add new attributes to the dimension
+
+
+
+
 
 ![image-20210523153438798](https://tva1.sinaimg.cn/large/008i3skNgy1gqsz6vs4ndj31820j4ago.jpg)
 
@@ -1028,6 +1058,8 @@ Data anomalies : if **not** normalize enough
 - 3NF is designed to present a snapshot of business state or process while no history is provided nor does business process itself can be clearly presented.
 
 
+
+**Dimensional Modeling (DM)** is a data structure technique optimized for data storage in a Data warehouse. 
 
 
 
@@ -1413,7 +1445,108 @@ Example: **neo4j**
 
 
 
-## Spark
+
+
+**Heap Table** - Traditional Design Approach of **OLTP** Database
+
+- Insert efficiently
+- not efficient in term of searching for a particular record or a group of records
+
+
+
+Optimize read on Heap Table -
+
+1. **Index**
+
+   An ***index*** is a copy of selected columns of data, from a table, that is designed to enable very efficient search. 
+
+   - To minimize the table scan to search.
+
+   - Rowid is a relative position in the table file. Use rowid software can directly access the record without scanning the file
+
+2. **Parallel**
+
+   Read table by multiple thread/process can improve efficiency
+
+   Bottleneck in this approach is slowest linke-from disk to cpu.
+
+
+
+**Massively Parallel Processing**
+
+[What is an MPP Database? Intro to Massively Parallel Processing | FlyData | Real Time MySQL Replication to Amazon Redshift](https://www.flydata.com/blog/introduction-to-massively-parallel-processing/)
+
+**Benefits** of MPP systems
+
+- Do not reply on single disk IO system to provide parallel throughput. *disk io sub system are usually expensive
+- Provide parallel computing in a easy model so that all CPUs working independently and provide very high aggregated throughput.
+- Relatively easy to provide N factor throughput by adding nodes.
+
+**Disadvantages** of MPP system
+
+- High latency on network link
+- Susceptible to component failure.
+- Transaction control and locks need coordinates among the nodes which relies on high latency network interconnect. Hence not suited for high volume OLTP application.
+
+
+
+
+
+Teradata
+
+- A Relational Database Management Syatem
+
+
+
+CREATE TABLE
+
+DROP TABLE
+
+CREATE VIEW
+
+DROP VIEW
+
+
+
+A **database** is an organized collection of data, generally stored and accessed electronically from a computer system. 
+
+A **table** is a collection of related data held in a table format within a database.
+
+A **volatile table** is a temporary **table** that is only held until the end of session.
+
+**Global temporary tables** have a persistent definition but do not have persistent contents across sessions. 
+
+A **primary key** is a field in a table which uniquely identifies each row/record in a *database* table.
+
+A **foreign key** is a set of attributes in a table that refers to the primary key of another table. 
+
+
+
+
+
+**Teradata**
+
+- Unlike traditional “single computer”databases, Teradata is build on multiple computers connected by network. We call this MPP system.
+
+- Slowest operation in MPP system is move data across network.
+
+- Data movement in Teradata is called“data redistribution”.
+
+
+
+**Teradata BTEQ** stands for Basic **Teradata** Query. I
+
+
+
+
+
+
+
+
+
+
+
+## Spark - Hadoop
 
 Big data: Volume, Variety and Velocity
 
@@ -1729,13 +1862,62 @@ from pyspark.mllib.clustering import KMeans
 
 
 
+**Hadoop**
+
+- volume
+- velocity
+- variety
+- veracity
+
+
+
+
+
+HDFS ：Hadoop Distributed File System
+
+Hive is SQL engine on Hadoop
+
+
+
+
+
+**ETL**
 
 
 
 
 
 
-**AWS Cloud**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## AWS Cloud
 
 S3
 
