@@ -976,6 +976,10 @@ A data warehouse is a repository for structured, filtered data that has already 
 
 
 
+There are two types of design schemas in data modeling, which are: Snowflake schema and Star schema.
+
+
+
 **Star schema**
 
 Dimensional  modeling: star schema
@@ -1044,8 +1048,6 @@ Data anomalies : if **not** normalize enough
 1. Updata anomaly
 2. Insertion anomaly
 3. Deletion anomaly
-
-
 
 
 

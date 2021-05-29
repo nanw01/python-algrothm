@@ -23,11 +23,17 @@ https://077448254281.signin.aws.amazon.com/console
 
 
 
+docker pull microsoft/mssql-server-linux
+docker run -d --name MySQLServer -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=mysapwd01$' -p 1433:1433 microsoft/mssql-server-linux
 
 
-
-
-
+Open azure data studio and provide connection parameters:
+host: localhost
+authentication type: SQL Login
+user: sa
+password: mysapwd01$
+Database : Default
+Server Group: Default
 
 
 
