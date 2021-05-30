@@ -1948,6 +1948,16 @@ A good ETL process is 4R
 
 ## AWS Cloud
 
+
+
+
+
+[Leveraging AWS for Successful Data Engineering Strategy (onica.com)](https://onica.com/blog/data-analytics/aws-data-engineering-strategy/)
+
+
+
+
+
 S3
 
 EC2

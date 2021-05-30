@@ -6,8 +6,6 @@ Data engineering is a term used in big data. It focuses on the application of da
 
 Data modeling is the method of documenting complex software design as a diagram so that anyone can easily understand. It is a conceptual representation of data objects that are associated between various data objects and the rules.
 
-
-
 #### 3) List various types of design schemas in Data Modelling
 
 There are mainly two types of schemas in data modeling: 1) Star schema and 2) Snowflake schema.

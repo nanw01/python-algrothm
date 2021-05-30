@@ -22,6 +22,15 @@ https://077448254281.signin.aws.amazon.com/console
 
 
 
+Anny:
+https://emr-etl.workshop.aws/
+Anny:
+https://redshift-deepdive.workshop.aws/
+
+
+
+
+
 
 docker pull microsoft/mssql-server-linux
 docker run -d --name MySQLServer -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=mysapwd01$' -p 1433:1433 microsoft/mssql-server-linux

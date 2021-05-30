@@ -6,10 +6,6 @@
 - Access control 
 - DBMS : pick between all the SQL and noSQL options?
 
-
-
-
-
 |         | OLTP                                   | OLAP                                          |
 | ------- | -------------------------------------- | --------------------------------------------- |
 | Purpose | support daily transaction              | Report and analyze data                       |
