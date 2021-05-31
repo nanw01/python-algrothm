@@ -1988,20 +1988,138 @@ You can use AWS Glue to understand your data assets.
 
 
 
-
-
-
-
-
-
 Amazon Athena
 
-
-
-
-
-
-
-
-
 Amazon SageMaker console 
+
+
+
+
+
+Data pipeline
+
+![image-20210530210948713](https://tva1.sinaimg.cn/large/008i3skNgy1gr1c7uue3dj30lm0okqdw.jpg)
+
+1. Collecttion 
+
+2. Extraction - Processing -Batch, Real-time
+
+3. Transformation 
+
+   1. Basic trandformations: affects  the apprearance and format of data
+   2. Advanced trandformations:  severe content and relationships changing
+
+4. Destinaiton -  data warehouse
+
+   ![image-20210530211321532](https://tva1.sinaimg.cn/large/008i3skNgy1gr1cbi2j93j315q0de14i.jpg)
+
+5. Monitoring
+
+   Aws data pipeline
+
+   ![image-20210530211500700](https://tva1.sinaimg.cn/large/008i3skNgy1gr1cd7ltjuj317o0imk98.jpg)
+
+
+
+
+
+
+
+Data pipeline for machine  learning
+
+![image-20210530211600231](https://tva1.sinaimg.cn/large/008i3skNgy1gr1ce95o9fj323s0iob03.jpg)
+
+Tools to build machine learning data pipeline
+
+ML-kit
+
+Amazon SageMaker
+
+
+
+Tools for general operations with data pipelines
+
+
+
+ETL Data preparatioon and data intergeation:
+
+Aws Glue, Apache spark
+
+Data warehouse
+
+Aws  redshift, snowflake
+
+Batch Schedulers
+
+Airflow, luigi
+
+Stream processing
+
+Spark, Flink, kafka, amazon kinesis
+
+
+
+
+
+what is meant by a data pipeline well
+
+it is a series of tools and actions for organizing and transferring the data to different storage and analysis systems
+
+it automates the etl process extraction transformation load as a data pipeline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
