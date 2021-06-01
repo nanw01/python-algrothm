@@ -2073,17 +2073,66 @@ it automates the etl process extraction transformation load as a data pipeline
 
 
 
+S3
+
+S3 cli commands
+
+1. Aws s3 mb
+2. Aws s3 ls
+3. Aws s3 rm
+4. Aws s3 mv
+5. Aws s3 cp
+
+How do you protect data at rest in S3?
+
+Entryption
+
+1. AES-256
+2. AWS-KMS
 
 
 
+Explain when do you use ELB, ALB, NLB
+
+- ALB : Layer 7, Path based routing, Attach WAF
+- NLB : Layer 4 (Eg: Video streaming)
+- CLB : Legacy, doesnt support TG
 
 
 
+EBS vs EFS vs S3
+
+EBS: Ablock storage, it is really fast, need an EC2 instance
+
+EFS: managed service, accessed by multiple EC2 instance
+
+S3: An obkect store, Great for log
 
 
 
+Types of EC2 instances
+
+R: memory optimized
+
+C: Compute optimized
+
+M: Medium
+
+I: Storage Optimized
+
+G: GPU
+
+T: Burstable
 
 
+
+Explain about any 5 Cloudformation functions?
+
+- fn:: Join
+- fn:: FindInMap
+- fn:: Select
+- fn:: Base64
+- Ref
 
 
 
