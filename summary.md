@@ -2136,6 +2136,10 @@ T: Burstable
 
 
 
+
+
+
+
 Explain about any 5 Cloudformation functions?
 
 - fn:: Join
@@ -2143,6 +2147,10 @@ Explain about any 5 Cloudformation functions?
 - fn:: Select
 - fn:: Base64
 - Ref
+
+
+
+
 
 
 
