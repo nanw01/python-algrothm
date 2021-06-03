@@ -899,6 +899,14 @@ Let's review everything we've worked with during this course. We started with le
 
 
 
+A **relational database** is a type of **database** that stores and provides access to data points that are related to one another.
+
+
+
+
+
+
+
 **Data warehouses**
 
 - Optimized for analytics - OLAP
@@ -1991,6 +1999,8 @@ You can use AWS Glue to understand your data assets.
 Amazon Athena
 
 Amazon SageMaker console 
+
+
 
 
 
