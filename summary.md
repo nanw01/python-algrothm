@@ -28,6 +28,12 @@ Databases : AWS RDS, Azure SQL Database, Google Cloud SQL、
 
 
 
+**RDS** Amazon Relational Database Service is a distributed relational database service by Amazon Web Services.
+
+
+
+
+
 **Structured and unstructured data**
 
 Structured: database schema, relational database
