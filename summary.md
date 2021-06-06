@@ -976,7 +976,22 @@ ETL testing ensures that the transformation of data from source to warehouse is 
 
 
 
+With traditional ETL test planning, there are six phases:
 
+1. Understanding business requirements/analysis
+2. Creating test plans and estimating time to completion
+3. Designing test cases and selecting test data
+4. Executing tests with bug reporting and closure
+5. Report summary and analysis
+6. Test completion
+
+ETL testing is performed in five stages:
+
+1. Identifying data sources and requirements
+2. Data acquisition
+3. Implement business logic and Dimensional Modeling
+4. Build and populate data
+5. Build Reports
 
 
 
@@ -2177,6 +2192,224 @@ Explain about any 5 Cloudformation functions?
 - fn:: Select
 - fn:: Base64
 - Ref
+
+
+
+
+
+Traditional Data Warehouse
+
+A traditonal data warehouse is located on-site at your offices.
+
+
+
+Facts, Dimensions, and Measures
+
+A [fact](https://saphanacloudservices.com/data-warehouse-cloud/resources/learn-more-facts-measures-and-dimensions/) is the part of your data that indicates a specific occurrence or transaction. 
+
+Several numbers can describe each fact, and we call these numbers [measures](https://en.wikipedia.org/wiki/Measure_(data_warehouse)).
+
+A [dimension](https://en.wikipedia.org/wiki/Dimension_(data_warehouse)) categorizes facts and measures and provides structured labeling information for them
+
+
+
+Normalization and Denormalization
+
+
+
+Normalization is the process of efficiently organizing data in a data warehouse. The main goals are to reduce data redundancy - remove any duplizate data - and improve data integrity -  improve the accuracy of data.
+
+Different levels of normalization, and no consensus for the best method
+
+Benefits
+
+- Faster searching and sorting on each table
+- Simpler table make data modification cxommands faster to write and execute
+- Less redundant data means you save on disk space, and so youcan collect and store more data.
+
+
+
+Denormalization is the process of deliberately adding redundant copies or groups of data to already normalized data. Denormalization improves the read performance and makes it much easier to manipulate tables into forms you want.
+
+Benefits:
+
+- Fewer tables minimize the need for table joins which speeds up data analysts’ workflow and leads them discovering more useful insights in the data
+- Fewer tables simplify queries leading to fewer bugs
+
+
+
+Data Models
+
+The first step in designing a data warehouse is to build a **conceptual data model** that defines the data you want and the high-level relationships between them.
+
+The next step is to define a **logical data model.** This model describes the data in detail in plain English without worrying about how to implement it in code.
+
+
+
+Fact tables have two types of columns: dimension columns and fact columns. 
+
+A **factless fact table** is a particular type of fact table that only has dimension columns. 
+
+
+
+The two most common schemas used to organize data warehouses are star and snowflake. Both methods use dimension tables that describe the information contained within a fact table.
+
+
+
+
+
+The **star schema** takes the information from the fact table and splits it into **denormalized dimension tables**.
+
+The emphasis for the star schema is on query speed. Only one join is needed to link fact tables to each dimension, so querying each table is easy. However, since the tables are denormalized, they often contain repeated and redundant data.
+
+
+
+
+
+The **snowflake schema** splits the fact table into **a series of normalized dimension tables.** Normalizing creates more dimension tables, and so reduces data integrity issues. 
+
+However, querying is more challenging using the snowflake schema because you need more table joins to access the relevant data. So, you have less redundant data, but it is harder to access.
+
+
+
+OLAP vs OLTP
+
+Online transaction processing (OLTP)
+
+Online analytical processing (OLAP)
+
+
+
+
+
+Traditional data warehouses are typically structured in three tiers:
+
+- Bottom Tier: A database server, typically an RDBMS, that extracts data from different sources using a gateway. Data sources fed into this tier include operational databases and other types of front-end data such as CSV and JSON files.
+- Middle Tier: An OLAP server that either
+  1. Directly implements the operations, or
+  2. Maps the operations on multidimensional data to standard relational operations, e.g., flattening XML or JSON data into rows within tables.
+- Top Tier: The querying and reporting tools for data analysis and business intelligence.
+
+
+
+
+
+**Virtual data warehousing** uses distributed queries on several databases, without integrating the data into one physical data warehouse.
+
+**[Data marts](https://panoply.io/data-warehouse-guide/data-mart-vs-data-warehouse/)** are subsets of data warehouses oriented for specific business functions, such as sales or finance. 
+
+
+
+There are two approaches to data warehouse design.
+
+The **Inmon approach** is a top-down design. With the Inmon methodology, the data warehouse is created first and is seen as the central component of the analytic environment. Data is then summarized and distributed from the centralized warehouse to one or more dependent data marts.
+
+The **Kimball approach** takes a bottom-up view of data warehouse design. In this architecture, an organization creates separate data marts, which provide views into single departments within an organization. The data warehouse is the combination of these data marts.
+
+
+
+ETL vs ELT
+
+**Extract, Transform, Load** ([ETL](https://panoply.io/blog/etl-vs-elt-the-difference-is-in-the-how/)) describes the process of extracting the data from source systems (typically transactional systems), converting the data to a format or structure suitable for querying and analysis, and finally loading it into the data warehouse. 
+
+**Extract, Load, Transform ([ELT](https://blog.panoply.io/etl-vs-elt-the-difference-is-in-the-how))** is a different approach to loading data. ELT takes the data from disparate sources and loads it directly into the target system, such as the data warehouse. The system then transforms the loaded data on-demand to enable analysis.
+
+ELT offers quicker loading than ETL, but it requires a [powerful system](https://panoply.io/) to perform the data transformations on-demand.
+
+
+
+
+
+
+
+**Amazon Redshift**
+
+**Clusters**
+
+Amazon Redshift bases its architecture on clusters. A cluster is simply a group of shared computing resources, called nodes.
+
+
+
+**Nodes**
+
+Nodes are computing resources that have CPU, RAM, and hard disk space. A cluster containing two or more nodes is composed of a leader node and compute nodes.
+
+Leader nodes communicate with client programs and compile code to execute queries, assigning it to compute nodes. Compute nodes run the queries and return the results to the leader node. A compute node only executes queries that reference tables stored on that node.
+
+**Partitions/Slices**
+
+Amazon partitions each compute node into slices. A slice receives an allocation of memory and disk space on the node. Multiple slices operate in parallel to speed up query execution time.
+
+**Columnar Storage**
+
+Redshift uses columnar storage, enabling better analytic query performance. Instead of storing records in rows, it stores values from a single column for multiple rows. The following diagrams make this clearer:
+
+**Compression**
+
+Compression reduces the size of the stored data. 
+
+#### Data Loading
+
+You can use Redshift’s COPY command to load large amounts of data into the data warehouse. The COPY command leverages Redshift’s MPP architecture to read and load data in parallel from files on Amazon S3, from a DynamoDB table, or text output from one or more remote hosts.
+
+It is also possible to stream data into Redshift, using the [Amazon Kinesis Firehose](https://aws.amazon.com/kinesis/firehose/firehose-to-redshift/) service.
+
+
+
+
+
+**Traditional Data Warehouse Concepts**
+
+- **Facts and measures**: a measure is a property on which calculations can be made. We refer to a collection of measures as facts, but sometimes the terms are used interchangeably.
+- **Normalization**: the process of reducing the amount of duplicate data, which leads to a more memory efficient data warehouse that is slower to query.
+- **Dimension**: Used to categorize and contextualize facts and measures, enabling analysis of and reporting on those measures.
+- **Conceptual data model**: Defines the critical high-level data entities and the relationships between them.
+- **Logical data model**: Describes data relationships, entities, and attributes in plain English without worrying about how to implement it in code.
+- **Physical data model**: A representation of how to implement the data design in a specific database management system.
+- **Star schema**: Takes a fact table and splits its information into denormalized dimension tables.
+- **Snowflake schema**: Splits the fact table into normalized dimension tables. Normalizing reduces data redundancy issues and improves data integrity, but queries are more complex.
+- **OLTP**: Online transaction processing systems facilitate fast, transaction-oriented processing with simple queries.
+- **OLAP**: Online analytical processing allows you to run complex read queries and thus perform a detailed analysis of historical transactional data.
+- **Data mart**: an archive of data focusing on a specific subject or department within an organization.
+- **Inmon approach**: Bill Inmon’s data warehouse approach defines the data warehouse as the centralized data repository for the entire enterprise. Data marts can be built from the data warehouse to serve the analytic needs of different departments.
+- **Kimball approach**: Ralph Kimball describes a data warehouse as the merging of mission-critical data marts, which are first created to serve the analytic needs of different departments.
+- **ETL**: Integrates data into the data warehouse by extracting it from various transactional sources, transforming the data to optimize it for analysis, and finally loading it into the data warehouse.
+- **ELT**: A variation on ETL that extracts raw data from an organization’s data sources and loads it into the data warehouse. When needed, it’s transformed for analytical purposes.
+- **Enterprise Data Warehouse**: The EDW consolidates data from all subject areas related to the enterprise.
+
+**Cloud Data Warehouse Concepts - Amazon Redshift as Example**
+
+- **Cluster**: A group of shared computing resources based in the cloud.
+- **Node**: A computing resource contained within a cluster. Each node has its own CPU, RAM, and hard disk space.
+- **Columnar storage**: This stores the values of a table in columns rather than rows, which optimizes the data for aggregated queries.
+- **Compression**: Techniques to reduce the size of stored data.
+- **Data loading**: Getting data from sources into the cloud-based data warehouse. In Redshift, you can use the COPY command or a data streaming service.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
