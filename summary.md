@@ -915,6 +915,12 @@ A **relational database** is a type of **database** that stores and provides acc
 
 **Data warehouses**
 
+
+
+[Data Warehouse Architecture: Traditional vs. Cloud | Panoply](https://panoply.io/data-warehouse-guide/data-warehouse-architecture-traditional-vs-cloud/)
+
+
+
 - Optimized for analytics - OLAP
   - Organized for reading/aggregating data
   - Usually read-only
@@ -959,6 +965,24 @@ A data warehouse is a repository for structured, filtered data that has already 
 | Purpose of Data | Not Yet Determined                    | Currently In Use                            |
 | Users           | Data Scientists                       | Business Professionals                      |
 | Accessibility   | Highly accessible and quick to update | More complicated and costly to make changes |
+
+
+
+
+
+**ETL testing**
+
+ETL testing ensures that the transformation of data from source to warehouse is accurate. It also involves verifying data at each point between the source and destination. 
+
+
+
+
+
+
+
+
+
+
 
 
 
