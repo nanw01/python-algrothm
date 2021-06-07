@@ -2387,6 +2387,39 @@ It is also possible to stream data into Redshift, using the [Amazon Kinesis Fire
 
 
 
+ETL testing is performed in five stages:
+
+1. Identifying data sources and requirements
+2. Data acquisition
+3. Implement business logic and Dimensional Modeling
+4. Build and populate data
+5. Build Reports
+
+
+
+
+
+| Test                        | Description                                                  |
+| --------------------------- | ------------------------------------------------------------ |
+| Metadata Testing            | Metadata testing confirms that the table definitions conform to the data model and application design specifications. This test should include data type check, data length check, and index/constraint check. |
+| Data Completeness Testing   | Data Completeness testing validates that all the expected source data has been successfully loaded to the target. Tests include: Compare and Validate counts, aggregates (min, max, sum, avg), and actual data between the source and destination. |
+| Data Quality Testing        | Data Quality tests validate the accuracy of the data. Data profiling is used to identify data quality issues, and the ETL is designed to fix or handle these issue. Automating the data quality checks between the source and target system can help to mitigate problems post-implementation. |
+| Data Transformation Testing | Data Transformation comes in two flavors: white box testing and black box testing. White box data transformation testing examines the program structure and develops test data from the program logic/code. Testers review the transformation logic from the mapping design document and the ETL code to create test cases. Black-box testing examines the functionality of an application without looking at internal structures for transformation testing; this involves reviewing the transformation logic from the mapping design document creating the appropriate test data. |
+| ETL Regression Testing      | ETL Regression testing validates that the ETL produces the same output for a specific input before and after the change. |
+| Incremental ETL Testing     | Incremental ETL testing verifies that updates on the sources are getting loaded into the target system correctly. |
+| ETL Integration Testing     | ETL integration testing is end-to-end testing of the data in the ETL process and the target application. |
+| ETL Performance Testing     | ETL performance testing is end-to-end testing to ensure that the all steps in the ETL process are working with expected data volumes. One pitfall of this testing method is the lack of actual data to emulate appropriate volumes. |
+
+
+
+
+
+
+
+
+
+
+
 
 
 
