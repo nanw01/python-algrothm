@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         mapping = dict()
-        
+
         stack = []
         for num in nums2:
             while stack and stack[-1] < num:
@@ -20,5 +20,5 @@ class Solution(object):
                 res.append(mapping[num])
             else:
                 res.append(-1)
-                
+
         return res

@@ -1,3 +1,9 @@
+select name,
+    sum(weight) over (
+        order by weight DESC ROWS between unbounded preceding and current row
+    ) as running_total_weight
+from cats
+order by running_total_weight;
 -- 
 select name,
     weight,
