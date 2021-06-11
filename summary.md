@@ -42,11 +42,32 @@ Semi-structured : Json
 
 Unstructured: schemaless, more like files 
 
+
+
+- 
+  Structured data is clearly defined and searchable types of data, while unstructured data is usually stored in its native format. 
+- Structured data is quantitative, while unstructured data is qualitative.
+- Structured data is often stored in [data warehouses](https://www.xplenty.com/blog/what-is-a-data-warehouse/), while unstructured data is stored in [data lakes](https://www.xplenty.com/glossary/what-is-data-lake/).
+- Structured data is easy to search and analyze, while unstructured data requires more work to process and understand. 
+- Structured data exists in predefined formats, while unstructured data is in a variety of formats. 
+
+
+
 **SQL and NoSQL**
 
 SQL: Tables, Database schema, Relational databases
 
 NoSQL: Non-relational databases, structured or unstructured, key-value stores(caching), Document DB(JSON objects)
+
+
+
+## The five critical differences of SQL vs NoSQL:
+
+1. SQL databases are relational, NoSQL are non-relational.
+2. SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.
+3. SQL databases are vertically scalable, NoSQL databases are horizontally scalable.
+4. SQL databases are table based, while NoSQL databases are document, key-value, graph or wide-column stores.
+5. SQL databases are better for multi-row transactions, NoSQL are better for unstructured data like documents or JSON.
 
 
 
@@ -152,6 +173,10 @@ Mpp Databases : Massivelly Parallel Processing Databases
 - Google BigQuery
 
 
+
+An MPP Database (short for massively parallel processing) is a storage structure designed to handle multiple operations simultaneously by several processing units.
+
+In this type of data warehouse architecture, each processing unit works independently with its own operating system and dedicated memory. This allows MPP databases to handle massive amounts of data and provide much faster analytics based on large datasets.
 
 
 
@@ -907,7 +932,11 @@ Let's review everything we've worked with during this course. We started with le
 
 A **relational database** is a type of **database** that stores and provides access to data points that are related to one another.
 
-
+- Structured data is clearly defined and searchable types of data, while unstructured data is usually stored in its native format. 
+- Structured data is quantitative, while unstructured data is qualitative.
+- Structured data is often stored in [data warehouses](https://www.xplenty.com/blog/what-is-a-data-warehouse/), while unstructured data is stored in [data lakes](https://www.xplenty.com/glossary/what-is-data-lake/).
+- Structured data is easy to search and analyze, while unstructured data requires more work to process and understand. 
+- Structured data exists in predefined formats, while unstructured data is in a variety of formats. 
 
 
 
