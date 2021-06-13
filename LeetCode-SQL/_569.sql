@@ -36,6 +36,7 @@ where t1.rownum >= num / 2
     and t1.rownum <= num / 2 + 1;
 --
 --
+--
 # Write your MySQL query statement below
 select ee.id,
     ee.company,
@@ -53,13 +54,13 @@ from (
     ) as ee
 where ee.row_num >= ee.num / 2
     and ee.row_num <= ee.num / 2 + 1;
+----------
 set @rowid = 0;
 set @cnt =(
         select count(*)
         from employees
     );
 set @middle_no = ceil(@cnt / 2);
-----------
 set @odd_even = null;
 select AVG(salary)
 from (

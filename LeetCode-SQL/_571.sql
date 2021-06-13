@@ -1,25 +1,15 @@
-select FORMAT(avg(n.Number), 4) * 1.0 as median
-from Numbers n
-    left join (
+# Write your MySQL query statement below
+select avg(Number) median
+from (
         select Number,
-            @prev := @count as prevNumber,
-            (@count := @count + Frequency) as countNumber
-        from Numbers,
-            (
-                select @count := 0,
-                    @prev := 0,
-                    @total := (
-                        select sum(Frequency)
-                        from Numbers
-                    )
-            ) temp
-        order by Number
-    ) n2 on n.Number = n2.Number
-where (
-        prevNumber < floor ((@total + 1) / 2)
-        and countNumber >= floor ((@total + 1) / 2)
-    )
-    or (
-        prevNumber < floor ((@total + 2) / 2)
-        and countNumber >= floor ((@total + 2) / 2)
-    )
+            sum(Frequency) over (
+                order by Number asc
+            ) c1,
+            sum(Frequency) over (
+                order by Number desc
+            ) c2,
+            sum(Frequency) over () cnt
+        from Numbers
+    ) t
+where c1 >= cnt / 2
+    and c2 >= cnt / 2;

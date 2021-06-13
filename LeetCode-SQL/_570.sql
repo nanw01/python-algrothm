@@ -1,8 +1,9 @@
-select Name
-from Employee as Name
-where Id in (
-        select ManagerId
-        from Employee
-        group by ManagerId
+# Write your MySQL query statement below
+select name
+from employee
+where id in (
+        select managerid
+        from employee
+        group by managerid
         having count(*) >= 5
     )
