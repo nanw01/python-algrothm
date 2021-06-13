@@ -35,7 +35,7 @@ def test():
     assert s.solve(matrix, 0) is False
     assert s.solve(matrix, 1) is True
     assert s.solve(matrix, 7) is True
-    assert s.solve(matrix, 5) is False
+    assert s.solve(matrix, 20) is False
 
     # empty
     matrix = [
@@ -45,4 +45,6 @@ def test():
 
 
 if __name__ == '__main__':
-    test()
+    # test()
+    lst = [1, 2, 3, 4]
+    print(lst[2])
