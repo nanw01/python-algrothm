@@ -23,6 +23,9 @@ class Solution:
         """
         pass
 
+    def solve3(self, s):
+        return s.replace(' ', '%20')
+
 
 def test():
     s = Solution()
