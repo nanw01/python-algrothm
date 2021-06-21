@@ -63,6 +63,8 @@ from patients as p
 group by p.id
 order by avg(t.cost) desc;
 -- 4. Write a SQL query to find the transaction with the 3rd highest cost
--- select rank() over(or)
--- from transactions as t
+select rank() over(
+        or
+    )
+from transactions as t;
 -- 5. Add primary key and foreign key to the transaction table
