@@ -68,3 +68,4 @@ select rank() over(
     )
 from transactions as t;
 -- 5. Add primary key and foreign key to the transaction table
+as
