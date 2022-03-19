@@ -11,7 +11,7 @@ pipeline {
 
         stage('platform 1-A') {
           steps {
-            fileExists 'a.py'
+            fileExists '65465465a.py'
             echo '213'
           }
         }
